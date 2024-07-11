@@ -14,11 +14,23 @@ const config: Config = {
 			},
 		},
 		colors: {
-			blue: '#0081FF',
+			blue: {
+				100: '#E8F1FB',
+				900: '#0081FF',
+			},
 			black: '#2D2D2D',
-			green: '#00B69B',
-			yellow: '#FCBE2D',
-			red: '#FD5454',
+			green: {
+				100: '#F2FBFA',
+				900: '#00B69B',
+			},
+			yellow: {
+				100: '#FFFAF4',
+				900: '#FCBE2D',
+			},
+			red: {
+				100: '#FFF6F6',
+				900: '#FD5454',
+			},
 			gray: {
 				100: '#FAFAFB',
 				200: '#F8F8FA',
