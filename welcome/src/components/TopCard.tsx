@@ -11,7 +11,7 @@ interface ItopCard {
 const TopCard = ({children}: ItopCard) => {
 	return (
 		<div
-			className={`relative flex h-[221px] w-full min-w-[372px] flex-col rounded-[16px] px-[22px] pb-[24px] pt-[22px]`}>
+			className={`shadow-box relative flex h-[221px] w-full min-w-[372px] flex-col rounded-[16px] bg-white px-[22px] pb-[24px] pt-[22px] `}>
 			{children}
 		</div>
 	);
