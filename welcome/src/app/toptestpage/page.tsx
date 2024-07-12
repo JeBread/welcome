@@ -1,14 +1,13 @@
 import Top from '@/components/Top';
 import React from 'react';
-
+import {topData} from '@/data/top';
 export default function TopTestPage() {
-	let arr = [1, 2, 3, 4];
 	return (
-		<div className='flex justify-between'>
-			{arr.map((item) => {
+		<div className='flex  justify-between gap-[41px]'>
+			{topData.map((top, index) => {
 				return (
-					<React.Fragment key={item}>
-						<Top item={item} />
+					<React.Fragment key={index}>
+						<Top data={top} />
 					</React.Fragment>
 				);
 			})}

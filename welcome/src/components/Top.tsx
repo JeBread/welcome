@@ -1,14 +1,17 @@
 import React from 'react';
 import TopCard from './TopCard';
+import {ItopData} from '@/types/data';
 
-const Top = ({item}: {item: number}) => {
+const Top = ({data}: {data: ItopData}) => {
 	return (
-		<TopCard item={item} state={'bad'}>
-			<TopCard.title>Top {item}</TopCard.title>
-			<TopCard.titleIcon>Top {item}</TopCard.titleIcon>
-			<TopCard.content>Top {item}</TopCard.content>
-			<TopCard.descriptionIcon>Top {item}</TopCard.descriptionIcon>
-			<TopCard.description>Top {item}</TopCard.description>
+		<TopCard>
+			<TopCard.title>{data.title}</TopCard.title>
+			<TopCard.titleIcon data={data} />
+			<TopCard.content data={data} />
+			<div className='mt-auto flex items-center gap-[10px]'>
+				<TopCard.descriptionIcon data={data} />
+				<TopCard.description data={data}></TopCard.description>
+			</div>
 		</TopCard>
 	);
 };

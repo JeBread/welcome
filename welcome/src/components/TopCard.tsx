@@ -1,33 +1,126 @@
-import React from 'react';
+import {ItopData} from '@/types/data';
+import React, {Children} from 'react';
+import {HiOutlineEmojiHappy} from 'react-icons/hi';
+import {Icon} from './Icon';
 
-const TopCard = ({
-	children,
-	item,
-	state,
-}: {
-	children: React.ReactNode;
-	item: number;
-	state: string;
-}) => {
-	
-	return <div className={`w-full min-w-[372px] ${}`}>{children}</div>;
+interface ItopCard {
+	children?: React.ReactNode;
+	data?: ItopData;
+}
+
+const TopCard = ({children}: ItopCard) => {
+	return (
+		<div
+			className={`relative flex h-[221px] w-full min-w-[372px] flex-col rounded-[16px] px-[22px] pb-[24px] pt-[22px]`}>
+			{children}
+		</div>
+	);
 };
 
 // Try 컴포넌트의 서브 컴포넌트
-TopCard.title = ({children}: {children: React.ReactNode}) => {
-	return <div>여기에 타이틀이 들어갑니다.</div>;
+TopCard.title = ({children}: ItopCard) => {
+	return <h2 className='text-[1rem] font-medium text-gray-900'>{children}</h2>;
 };
-TopCard.titleIcon = ({children}: {children: React.ReactNode}) => {
-	return <div>아이콘</div>;
+
+TopCard.titleIcon = ({children, data}: ItopCard) => {
+	return (
+		<div className='absolute right-[22px] top-[22px]'>
+			<div
+				className={`flex size-[84px] items-center justify-center rounded-[20px] ${
+					data?.state === 'good'
+						? 'bg-green-100'
+						: data?.state === 'bad'
+							? 'bg-red-100'
+							: 'bg-yellow-100'
+				}`}>
+				<div
+					className={` ${
+						data?.state === 'good'
+							? 'text-green-900'
+							: data?.state === 'bad'
+								? 'text-red-900'
+								: 'text-yellow-900'
+					}`}>
+					<Icon icon={data!.icon} />
+				</div>
+			</div>
+		</div>
+	);
 };
-TopCard.content = ({children}: {children: React.ReactNode}) => {
-	return <div>콘텐트</div>;
+
+TopCard.content = ({children, data}: ItopCard) => {
+	return (
+		<div>
+			<div className='flex items-center gap-[6px]'>
+				<div className=' text-[45px] font-bold'>{data?.case}</div>
+				{data?.default && (
+					<div className='flex items-center gap-[6px]'>
+						<div className='mt-[24px] text-[20px] font-medium'>/</div>
+						<div className='mt-[24px] text-[16px] font-medium'>20</div>
+					</div>
+				)}
+				{data?.suffix ? (
+					<div className='mt-[24px]'>명</div>
+				) : (
+					<div>
+						<div className='mb-[4px] mt-[24px] text-[16px] font-medium'>건</div>
+					</div>
+				)}
+			</div>
+		</div>
+	);
 };
-TopCard.description = ({children}: {children: React.ReactNode}) => {
-	return <div>이자리는 설명입니다.</div>;
+
+TopCard.descriptionIcon = ({children, data}: ItopCard) => {
+	console.log(data!.icon);
+
+	return (
+		<div
+			className={`flex size-[22px] items-center justify-center rounded-full ${
+				data?.state === 'good'
+					? 'bg-green-100'
+					: data?.state === 'bad'
+						? 'bg-red-100'
+						: 'bg-yellow-100'
+			}`}>
+			<div>
+				<div
+					className={
+						data?.state === 'good'
+							? 'text-green-900'
+							: data?.state === 'bad'
+								? 'text-red-900'
+								: 'text-yellow-900'
+					}>
+					<Icon icon={data!.descriptionIcon} />
+				</div>
+			</div>
+		</div>
+	);
 };
-TopCard.descriptionIcon = ({children}: {children: React.ReactNode}) => {
-	return <div>설명아이콘</div>;
+TopCard.description = ({children, data}: ItopCard) => {
+	console.log(data);
+	return (
+		<div className={`mt-auto flex items-center rounded-full`}>
+			{' '}
+			<div>
+				<span className='text-[16px] font-normal'>{data?.description[0]} </span>
+				<span
+					className={`text-[16px] font-bold ${
+						data?.state === 'good'
+							? 'text-green-900'
+							: data?.state === 'bad'
+								? 'text-red-900'
+								: 'text-yellow-900'
+					}`}>
+					{data?.emphasize}
+				</span>
+				<span className={`text-[16px] font-normal`}>
+					{data?.description[1]}
+				</span>
+			</div>
+		</div>
+	);
 };
 
 export default TopCard;
