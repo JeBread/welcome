@@ -8,4 +8,6 @@ export interface ItopData {
 	emphasize: string;
 	description: string[];
 	descriptionIcon: string;
+	hovertitle: string;
+	hovercontent: string;
 }
