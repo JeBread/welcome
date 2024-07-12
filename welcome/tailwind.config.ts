@@ -10,18 +10,30 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-conic':
-					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+			boxShadow: {
+				box: '5px 5px 30px rgba(231, 231, 231, 0.2)',
+				select: '0 4px 4px rgba(0,129,255, 0.1)',
 			},
 		},
 		colors: {
-			blue: '#0081FF',
+			white: '#ffffff',
+			blue: {
+				100: '#E8F1FB',
+				900: '#0081FF',
+			},
 			black: '#2D2D2D',
-			green: '#00B69B',
-			yellow: '#FCBE2D',
-			red: '#FD5454',
+			green: {
+				100: '#F2FBFA',
+				900: '#00B69B',
+			},
+			yellow: {
+				100: '#FFFAF4',
+				900: '#FCBE2D',
+			},
+			red: {
+				100: '#FFF6F6',
+				900: '#FD5454',
+			},
 			gray: {
 				100: '#FAFAFB',
 				200: '#F8F8FA',
