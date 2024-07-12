@@ -1,5 +1,16 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import {
+	Modal,
+	ModalContent,
+	ModalHeader,
+	ModalBody,
+	ModalFooter,
+	Button,
+	useDisclosure,
+} from '@nextui-org/react';
 // import {useState} from 'react';
 
 // export default function Bottom({item}: {item: any}) {
@@ -116,6 +127,7 @@ export default function Bottom(item: any) {
 	// 아래의 리스트에서 처리상태 '승인'은 green, '반려'는 red, '승인대기'는 yellow으로 표시되어야 합니다.
 	// 상세 보기의 [보기] 버튼에 hover시 테두리와 텍스트 색상이 변경되어야 합니다. -> blue
 	//
+	const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
 	return (
 		<div className='flex w-full flex-row justify-center bg-white'>
@@ -263,25 +275,86 @@ export default function Bottom(item: any) {
 									</div>
 								</div>
 							</div>
-							<div className='absolute left-[1393px] top-[127px] h-[35px] w-[95px] rounded border border-solid border-[#6365664a]' />
-							<div className='absolute left-[1393px] top-[185px] h-[35px] w-[95px] rounded border border-solid border-[#6365664a]' />
-							<div className='absolute left-[1393px] top-[243px] h-[35px] w-[95px] rounded border border-solid border-[#6365664a]' />
+							{/* <div className='absolute left-[1393px] top-[127px] h-[35px] w-[95px] rounded border border-solid border-[#6365664a]' /> */}
+							{/* <div className='absolute left-[1393px] top-[185px] h-[35px] w-[95px] rounded border border-solid border-[#6365664a]' /> */}
+							{/* <div className='absolute left-[1393px] top-[243px] h-[35px] w-[95px] rounded border border-solid border-[#6365664a]' /> */}
 							<div className='absolute left-[1413px] top-[18px] text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
 								상세 보기
 							</div>
-							<div className='absolute left-[1427px] top-[76px] text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
+							<Button
+								onPress={onOpen}
+								radius='sm'
+								style={{width: '95px', height: '35px'}}
+								className='absolute left-[1394px] top-[69px] border border-gray-900 border-opacity-30  bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566]'>
 								보기
-							</div>
-							<div className='absolute left-[1427px] top-[134px] text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
+							</Button>
+							<Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+								<ModalContent>
+									{(onClose) => (
+										<>
+											<ModalHeader className='flex flex-col gap-1'>
+												Modal Title
+											</ModalHeader>
+											<ModalBody>
+												<p>
+													Lorem ipsum dolor sit amet, consectetur adipiscing
+													elit. Nullam pulvinar risus non risus hendrerit
+													venenatis. Pellentesque sit amet hendrerit risus, sed
+													porttitor quam.
+												</p>
+												<p>
+													Lorem ipsum dolor sit amet, consectetur adipiscing
+													elit. Nullam pulvinar risus non risus hendrerit
+													venenatis. Pellentesque sit amet hendrerit risus, sed
+													porttitor quam.
+												</p>
+												<p>
+													Magna exercitation reprehenderit magna aute tempor
+													cupidatat consequat elit dolor adipisicing. Mollit
+													dolor eiusmod sunt ex incididunt cillum quis. Velit
+													duis sit officia eiusmod Lorem aliqua enim laboris do
+													dolor eiusmod. Et mollit incididunt nisi consectetur
+													esse laborum eiusmod pariatur proident Lorem eiusmod
+													et. Culpa deserunt nostrud ad veniam.
+												</p>
+											</ModalBody>
+											<ModalFooter>
+												<Button
+													color='danger'
+													variant='light'
+													onPress={onClose}>
+													닫기
+												</Button>
+												<Button color='primary' onPress={onClose}>
+													확인
+												</Button>
+											</ModalFooter>
+										</>
+									)}
+								</ModalContent>
+							</Modal>
+							<Button
+								onPress={onOpen}
+								radius='sm'
+								style={{width: '95px', height: '35px'}}
+								className='absolute left-[1394px] top-[127px] border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
 								보기
-							</div>
-							<div className='absolute left-[1427px] top-48 text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
+							</Button>
+							<Button
+								onPress={onOpen}
+								radius='sm'
+								style={{width: '95px', height: '35px'}}
+								className='absolute left-[1394px] top-[185px] border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
 								보기
-							</div>
-							<div className='absolute left-[1427px] top-[250px] text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
+							</Button>
+							<Button
+								onPress={onOpen}
+								radius='sm'
+								style={{width: '95px', height: '35px'}}
+								className='absolute left-[1394px] top-[243px] border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
 								보기
-							</div>
-							<div className='absolute left-[1393px] top-[69px] h-[35px] w-[95px] rounded border border-solid border-[#6365664a]' />
+							</Button>
+							{/* <div className='absolute left-[1393px] top-[69px] h-[35px] w-[95px] rounded border border-solid border-[#6365664a]' /> */}
 						</div>
 					</div>
 				</div>
