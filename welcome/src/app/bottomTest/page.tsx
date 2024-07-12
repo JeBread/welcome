@@ -1,6 +1,6 @@
 import Bottom from '@/components/bottom';
 // import BottomAIReport from '@/components/bottomAIReport';
-// import BottomTopThree from '@/components/bottomTopThree';
+// import BottomTop3 from '@/components/bottomTop3';
 // import BottomDetailList from '@/components/bottomDetailList';
 import React from 'react';
 
@@ -9,8 +9,8 @@ export default function BottomTest() {
 		<div className='flex'>
 			<Bottom item='Bottom 1' />
 			{/* <BottomAIReport item='Bottom 1' />
-      <BottomTopThree item='Bottom 2' />
-      <BottomDetailList item='Bottom 3' /> */}
+			<BottomTop3 item='Bottom 2' />
+			<BottomDetailList item='Bottom 3' /> */}
 		</div>
 	);
 }

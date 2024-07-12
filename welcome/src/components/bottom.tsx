@@ -119,14 +119,14 @@ export default function Bottom(item: any) {
 	// const [selectedTotalNqry, setSelectedTotalNqry] = useState<number>(0); // 선택된 문의 유형의 총 건수
 	// const [selectedNqryReport, setSelectedNqryReport] = useState<string>(''); // 선택된 문의 유형의 AI분석
 
-	// 주요 문의 유형 TOP3 버튼을 눌렀을 때 해당 문의 유형에 테두리 색상이 변경되어야 하고
-	// 그림자가 나타나야 합니다.
 	// 또한, 아래의 리스트는 해당 문의 유형에 대한 리스트를 보여주어야 합니다.
 	// 또한, 좌측의 AI 분석 리포트에서 [해당 문의 유형]이 [해당 문의 유형의 건수] 로 변경되어야 하며,
 	// [해당 문의 유형의 AI 분석]이 나타나야 합니다.
 	// 아래의 리스트에서 처리상태 '승인'은 green, '반려'는 red, '승인대기'는 yellow으로 표시되어야 합니다.
-	// 상세 보기의 [보기] 버튼에 hover시 테두리와 텍스트 색상이 변경되어야 합니다. -> blue
+	// 각 해당 항목의 보기 버튼을 누르면 상세정보 조회 모달이 나타나야 합니다.
+	// 배송, 환불, 영상오류 아이콘과 아이콘의 배경 색상 변경
 	//
+
 	const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
 	return (
@@ -285,7 +285,7 @@ export default function Bottom(item: any) {
 								onPress={onOpen}
 								radius='sm'
 								style={{width: '95px', height: '35px'}}
-								className='absolute left-[1394px] top-[69px] border border-gray-900 border-opacity-30  bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566]'>
+								className='absolute left-[1394px] top-[69px] border border-gray-900 border-opacity-30 bg-white  text-center text-sm font-bold leading-[normal] tracking-normal text-gray-900 hover:border-blue-900 hover:text-blue-900'>
 								보기
 							</Button>
 							<Modal isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -337,21 +337,21 @@ export default function Bottom(item: any) {
 								onPress={onOpen}
 								radius='sm'
 								style={{width: '95px', height: '35px'}}
-								className='absolute left-[1394px] top-[127px] border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
+								className='absolute left-[1394px] top-[127px] border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-gray-900 hover:border-blue-900 hover:text-blue-900 '>
 								보기
 							</Button>
 							<Button
 								onPress={onOpen}
 								radius='sm'
 								style={{width: '95px', height: '35px'}}
-								className='absolute left-[1394px] top-[185px] border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
+								className='absolute left-[1394px] top-[185px] border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] hover:border-blue-900 hover:text-blue-900 '>
 								보기
 							</Button>
 							<Button
 								onPress={onOpen}
 								radius='sm'
 								style={{width: '95px', height: '35px'}}
-								className='absolute left-[1394px] top-[243px] border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] '>
+								className='absolute left-[1394px] top-[243px] border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-[#636566] hover:border-blue-900 hover:text-blue-900 '>
 								보기
 							</Button>
 							{/* <div className='absolute left-[1393px] top-[69px] h-[35px] w-[95px] rounded border border-solid border-[#6365664a]' /> */}
@@ -378,62 +378,62 @@ export default function Bottom(item: any) {
 				</div>
 				<div className='absolute left-[818px] top-[67px] h-[94px] w-[771px]'>
 					<div className='absolute left-0 top-0 h-[94px] w-[771px]'>
-						<div className='absolute left-[532px] top-0 h-[94px] w-[239px] rounded-[10px] bg-[#fafafb]'>
+						<div className='absolute left-[532px] top-0 h-[94px] w-[239px] rounded-[10px] bg-gray-100 hover:border hover:border-blue-900 hover:bg-white hover:shadow-[0px_6px_30px_#204f7d1f]'>
 							<div className='absolute left-[100px] top-[27px] h-11 w-[105px]'>
 								<div className='relative h-11 w-[109px]'>
-									<div className='text-text absolute left-0 top-0 w-[105px] text-base font-medium leading-[normal] tracking-normal opacity-70 '>
+									<div className='absolute left-0 top-0 w-[105px] text-base font-medium leading-[normal] tracking-normal text-gray-900 '>
 										영상 오류
 									</div>
-									<div className='text-text absolute left-0 top-[26px] w-[47px] text-sm font-normal leading-[normal] tracking-normal opacity-70 '>
+									<div className='absolute left-0 top-[26px] w-[47px] text-sm font-normal leading-[normal] tracking-normal text-gray-900'>
 										70건
 									</div>
 								</div>
 							</div>
-							<div className='absolute left-[26px] top-[23px] size-[52px] rounded-[38px] bg-[#ff8f6b1a]' />
+							<div className='absolute left-[26px] top-[23px] size-[52px] rounded-[38px] bg-blue-100' />
 						</div>
-						<div className='absolute left-[266px] top-0 h-[94px] w-[239px] rounded-[10px] border border-solid border-[#0081ff] bg-[#fafafb] shadow-[0px_6px_30px_#204f7d1f]'>
+						<div className=' absolute left-[266px] top-0 h-[94px] w-[239px] rounded-[10px] border border-solid border-blue-900 bg-[#fafafb] shadow-[0px_6px_30px_#204f7d1f]'>
 							<div className='absolute left-[98px] top-[26px] h-11 w-[62px]'>
-								<div className='text-text absolute left-0 top-0 w-[58px] text-base font-medium leading-[normal] tracking-normal opacity-70 '>
+								<div className='absolute left-0 top-0 w-[58px] font-medium leading-[normal] tracking-normal text-black'>
 									환불
 								</div>
-								<div className='text-text absolute left-0 top-[25px] w-[47px] text-sm font-normal leading-[normal] tracking-normal opacity-70 '>
+								<div className='absolute left-0 top-[25px] w-[47px] text-sm font-normal leading-[normal] tracking-normal text-gray-900'>
 									160건
 								</div>
 							</div>
-							<div className='absolute left-6 top-[22px] size-[52px] rounded-[38px] bg-[#ffd56b33]' />
+							<div className='absolute left-6 top-[22px] size-[52px] rounded-[38px] bg-blue-100' />
 						</div>
-						<div className='absolute left-0 top-0 h-[94px] w-[239px] rounded-[10px] bg-[#fafafb]'>
+						<div className='absolute left-0 top-0 h-[94px] w-[239px] rounded-[10px] bg-gray-100 hover:border hover:border-blue-900 hover:bg-white hover:text-black hover:shadow-[0px_6px_30px_#204f7d1f]'>
 							<div className='absolute left-[99px] top-[26px] h-[46px] w-[57px]'>
 								<div className='relative h-[46px] w-[61px]'>
-									<div className='absolute left-0 top-0 w-[57px] text-base font-medium leading-[normal] tracking-normal text-black opacity-70 '>
+									<div className='absolute left-0 top-0 w-[57px] text-base font-medium leading-[normal] tracking-normal text-gray-900'>
 										배송
 									</div>
-									<div className='text-text absolute left-0 top-[27px] w-[47px] text-sm font-normal leading-[normal] tracking-normal opacity-70 '>
+									<div className='absolute left-0 top-[27px] w-[47px] text-sm font-normal leading-[normal] tracking-normal'>
 										180건
 									</div>
 								</div>
 							</div>
-							<div className='absolute left-[25px] top-[23px] size-[52px] rounded-[38px] bg-[#5b92ff1a]' />
+							<div className='absolute left-[25px] top-[23px] size-[52px] rounded-[38px] bg-blue-100' />
 						</div>
 					</div>
 					<Image
 						className='absolute left-[570px] top-[35px]'
 						alt='ErrorIcon'
-						src='/bottom/errorIcon.png'
+						src='/bottom/errorIcon.svg'
 						width={28}
 						height={28}
 					/>
 					<Image
 						className='absolute left-[305px] top-[37px]'
 						alt='refundIcon'
-						src='/bottom/refundIcon.png'
+						src='/bottom/refundIcon.svg'
 						width={24}
 						height={24}
 					/>
 					<Image
 						className='absolute left-[39px] top-9'
 						alt='deliveryIcon'
-						src='/bottom/deliveryIcon.png'
+						src='/bottom/deliveryIcon.svg'
 						width={24}
 						height={24}
 					/>
