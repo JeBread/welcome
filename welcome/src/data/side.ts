@@ -4,7 +4,7 @@ export const sideData = [
 		title: '메인',
 	},
 	{
-		icon: 'call',
+		icon: 'center',
 		title: '상담사 현황',
 	},
 	{
