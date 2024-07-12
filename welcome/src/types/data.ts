@@ -11,3 +11,9 @@ export interface ItopData {
 	hovertitle: string;
 	hovercontent: string;
 }
+
+export interface IsideData {
+	icon: string;
+	title: string;
+	subtitle: string[];
+}
