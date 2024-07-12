@@ -1,6 +1,5 @@
 import {ItopData} from '@/types/data';
-import React, {Children} from 'react';
-import {HiOutlineEmojiHappy} from 'react-icons/hi';
+import React from 'react';
 import {Icon} from './Icon';
 
 interface ItopCard {
@@ -11,7 +10,7 @@ interface ItopCard {
 const TopCard = ({children}: ItopCard) => {
 	return (
 		<div
-			className={`shadow-box relative flex h-[221px] w-full min-w-[372px] flex-col rounded-[16px] bg-white px-[22px] pb-[24px] pt-[22px] `}>
+			className={`relative flex h-[221px] w-full min-w-[372px] cursor-pointer flex-col rounded-[16px] bg-white px-[22px] pb-[24px] pt-[22px] shadow-box `}>
 			{children}
 		</div>
 	);
@@ -22,7 +21,7 @@ TopCard.title = ({children}: ItopCard) => {
 	return <h2 className='text-[1rem] font-medium text-gray-900'>{children}</h2>;
 };
 
-TopCard.titleIcon = ({children, data}: ItopCard) => {
+TopCard.titleIcon = ({data}: ItopCard) => {
 	return (
 		<div className='absolute right-[22px] top-[22px]'>
 			<div
@@ -48,7 +47,7 @@ TopCard.titleIcon = ({children, data}: ItopCard) => {
 	);
 };
 
-TopCard.content = ({children, data}: ItopCard) => {
+TopCard.content = ({data}: ItopCard) => {
 	return (
 		<div>
 			<div className='flex items-center gap-[6px]'>
@@ -71,7 +70,7 @@ TopCard.content = ({children, data}: ItopCard) => {
 	);
 };
 
-TopCard.descriptionIcon = ({children, data}: ItopCard) => {
+TopCard.descriptionIcon = ({data}: ItopCard) => {
 	console.log(data!.icon);
 
 	return (
@@ -98,7 +97,7 @@ TopCard.descriptionIcon = ({children, data}: ItopCard) => {
 		</div>
 	);
 };
-TopCard.description = ({children, data}: ItopCard) => {
+TopCard.description = ({data}: ItopCard) => {
 	console.log(data);
 	return (
 		<div className={`mt-auto flex items-center rounded-full`}>

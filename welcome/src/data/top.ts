@@ -9,6 +9,8 @@ export const topData: ItopData[] = [
 		emphasize: '15',
 		description: ['현재', '건의 요청이 대기중입니다.'],
 		descriptionIcon: 'wait',
+		hovertitle: '승인 대기 중인',
+		hovercontent: '문의사항을 확인해 보세요',
 	},
 	{
 		title: '반려',
@@ -18,6 +20,8 @@ export const topData: ItopData[] = [
 		emphasize: '2.1% 증가',
 		description: ['어제보다', '했어요'],
 		descriptionIcon: 'angry',
+		hovertitle: '반려된',
+		hovercontent: '문의사항을 확인해 보세요',
 	},
 	{
 		title: '승인',
@@ -27,6 +31,8 @@ export const topData: ItopData[] = [
 		emphasize: '3.5% 증가',
 		description: ['어제보다', '했어요'],
 		descriptionIcon: 'bigsmile',
+		hovertitle: '승인된',
+		hovercontent: '문의사항을 확인해 보세요',
 	},
 	{
 		title: '상담사 전환',
@@ -38,5 +44,7 @@ export const topData: ItopData[] = [
 		emphasize: '보통',
 		description: ['현재 상담사 대기 시간이 ', '이에요'],
 		descriptionIcon: 'smile',
+		hovertitle: '상담사 연결',
+		hovercontent: '현황을 확인해 보세요',
 	},
 ];
