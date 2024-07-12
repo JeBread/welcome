@@ -1,12 +1,27 @@
+'use client';
+
+import React, {useState} from 'react';
 import {sideData} from '@/data/side';
-import React from 'react';
 import SideMenu from './SideMenu';
 
 const Side = () => {
+	const [navIndex, setNavIndex] = useState<number>(0);
+	const [hoverNavIndex, setHoverNavIndex] = useState<number>(navIndex);
+	console.log(hoverNavIndex);
+
 	return (
-		<aside className={`min-w-[230px]`}>
+		<aside className='min-w-[230px]'>
 			{sideData.map((side, index) => (
-				<React.Fragment key={index}></React.Fragment>
+				<React.Fragment key={index}>
+					<SideMenu
+						data={side}
+						onClick={() => setNavIndex(index)}
+						onMouseEnter={() => setHoverNavIndex(index)}
+						onMouseLeave={() => setHoverNavIndex(navIndex)}
+						isHovered={hoverNavIndex === index}
+						isSelected={navIndex === index}
+					/>
+				</React.Fragment>
 			))}
 		</aside>
 	);
