@@ -21,22 +21,15 @@ export const dailyData = {
 				gradient.addColorStop(1, 'rgba(0, 129, 255, 0)');
 				return gradient;
 			},
-			pointRadius: 4,
-			pointHoverRadius: 7,
-			pointBackgroundColor: 'rgb(0, 129, 255)',
+			pointRadius: 5,
+			pointHoverRadius: 6,
+			pointBorderWidth: 0,
+			pointBackgroundColor: Array.from({length: 24}).map((item) => {
+				return 'rgb(0, 129, 255)';
+			}),
 			textColor: '#D1D1DF',
-			options={{
-     scales: {
-         yAxes: [{
-             gridLines: {
-                  color: ['rgba(36, 206, 0, 0.8)', 'rgba(255, 255, 0, .8)','rgba(255, 162, 0, 0.8)','rgba(36, 206, 0, 0.8)'],
-             }
-          }],
-      },
- }}
 		},
 	],
-	
 };
 
 // 각 시간대별 연령대별 비율 (도넛 차트 데이터)
@@ -68,7 +61,9 @@ export const weeklyData = {
 			},
 			pointRadius: 5,
 			pointHoverRadius: 7,
-			pointBackgroundColor: 'rgb(0, 129, 255)',
+			pointBackgroundColor: Array.from({length: 24}).map((item) => {
+				return 'rgb(0, 129, 255)';
+			}),
 		},
 	],
 };
@@ -104,7 +99,9 @@ export const monthlyData = {
 			},
 			pointRadius: 5,
 			pointHoverRadius: 7,
-			pointBackgroundColor: 'rgb(0, 129, 255)',
+			pointBackgroundColor: Array.from({length: 24}).map((item) => {
+				return 'rgb(0, 129, 255)';
+			}),
 		},
 	],
 };

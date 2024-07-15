@@ -7,7 +7,6 @@ import SideMenu from './SideMenu';
 const Side = () => {
 	const [navIndex, setNavIndex] = useState<number>(0);
 	const [hoverNavIndex, setHoverNavIndex] = useState<number>(navIndex);
-	console.log(hoverNavIndex);
 
 	return (
 		<aside className='min-w-[230px]'>
