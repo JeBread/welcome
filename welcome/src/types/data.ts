@@ -17,3 +17,9 @@ export interface IsideData {
 	title: string;
 	subtitle: string[];
 }
+
+export type TdataType =
+	| {
+			[key: string]: number[];
+	  }
+	| {[key: number]: number[]};

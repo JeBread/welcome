@@ -10,7 +10,7 @@ interface ItopCard {
 const TopCard = ({children}: ItopCard) => {
 	return (
 		<div
-			className={`shadow-box absolute inset-0 flex cursor-pointer flex-col rounded-[16px] bg-white px-[22px] pb-[24px] pt-[22px] `}>
+			className={`absolute inset-0 flex cursor-pointer flex-col rounded-[16px] bg-white px-[22px] pb-[24px] pt-[22px] shadow-box `}>
 			{children}
 		</div>
 	);
@@ -71,8 +71,6 @@ TopCard.content = ({data}: ItopCard) => {
 };
 
 TopCard.descriptionIcon = ({data}: ItopCard) => {
-	console.log(data!.icon);
-
 	return (
 		<div
 			className={`flex size-[22px] items-center justify-center rounded-full ${
@@ -98,7 +96,6 @@ TopCard.descriptionIcon = ({data}: ItopCard) => {
 	);
 };
 TopCard.description = ({data}: ItopCard) => {
-	console.log(data);
 	return (
 		<div className={`mt-auto flex items-center rounded-full`}>
 			<div>
