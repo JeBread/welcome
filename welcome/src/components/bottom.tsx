@@ -11,6 +11,7 @@ import {
 	Button,
 	useDisclosure,
 } from '@nextui-org/react';
+import {useBottomStore} from '@/store/bottomStore';
 // import {useState} from 'react';
 
 // export default function Bottom({item}: {item: any}) {
@@ -18,6 +19,9 @@ import {
 // }
 
 export default function Bottom(item: any) {
+	const {inquiryStatus, selectedInquiry, setInquiryStatus, setSelectedInquiry} =
+		useBottomStore();
+
 	interface aiReport {
 		inquiryType: string;
 		contents: string;
