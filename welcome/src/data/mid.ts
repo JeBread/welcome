@@ -12,6 +12,7 @@ export const dailyData = {
 			label: '상담 건수',
 			data: Array.from({length: 24}, () => Math.floor(Math.random() * 20) + 1), // 1~20 사이의 랜덤 상담 건수
 			borderColor: 'rgb(0, 129, 255)',
+			borderWidth: 1.5,
 			fill: 'start',
 			backgroundColor: (context: ScriptableContext<'line'>) => {
 				const ctx = context.chart.ctx;
@@ -20,11 +21,22 @@ export const dailyData = {
 				gradient.addColorStop(1, 'rgba(0, 129, 255, 0)');
 				return gradient;
 			},
-			pointRadius: 5,
+			pointRadius: 4,
 			pointHoverRadius: 7,
 			pointBackgroundColor: 'rgb(0, 129, 255)',
+			textColor: '#D1D1DF',
+			options={{
+     scales: {
+         yAxes: [{
+             gridLines: {
+                  color: ['rgba(36, 206, 0, 0.8)', 'rgba(255, 255, 0, .8)','rgba(255, 162, 0, 0.8)','rgba(36, 206, 0, 0.8)'],
+             }
+          }],
+      },
+ }}
 		},
 	],
+	
 };
 
 // 각 시간대별 연령대별 비율 (도넛 차트 데이터)
@@ -57,7 +69,6 @@ export const weeklyData = {
 			pointRadius: 5,
 			pointHoverRadius: 7,
 			pointBackgroundColor: 'rgb(0, 129, 255)',
-			pointBorderColor: '#fff',
 		},
 	],
 };
@@ -94,7 +105,6 @@ export const monthlyData = {
 			pointRadius: 5,
 			pointHoverRadius: 7,
 			pointBackgroundColor: 'rgb(0, 129, 255)',
-			pointBorderColor: '#fff',
 		},
 	],
 };
