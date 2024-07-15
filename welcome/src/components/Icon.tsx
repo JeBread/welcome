@@ -5,10 +5,15 @@ import {
 	FaRegFaceAngry,
 	FaRegFaceLaughWink,
 } from 'react-icons/fa6';
-import {TbCircleMinus, TbLayoutDashboard} from 'react-icons/tb';
+import {TbCircleMinus, TbLayoutDashboard, TbAlertCircle} from 'react-icons/tb';
 import {BiLoaderCircle} from 'react-icons/bi';
 import {IoIosCall} from 'react-icons/io';
-import {PiClockClockwiseBold, PiPhoneCallBold} from 'react-icons/pi';
+import {
+	PiClockClockwiseBold,
+	PiPhoneCallBold,
+	PiPackageBold,
+} from 'react-icons/pi';
+import {RiRefund2Line} from 'react-icons/ri';
 
 const iconMap: {[key: string]: JSX.Element} = {
 	success: <FaRegCheckCircle className='text-[42px]' />,
@@ -22,6 +27,9 @@ const iconMap: {[key: string]: JSX.Element} = {
 	home: <TbLayoutDashboard className='text-[18px]' />,
 	log: <PiClockClockwiseBold className='text-[18px]' />,
 	center: <PiPhoneCallBold className='text-[18px]' />,
+	package: <PiPackageBold className='text-[24px]' />,
+	refund: <RiRefund2Line className='text-[24px]' />,
+	alert: <TbAlertCircle className='text-[24px]' />,
 };
 
 export function Icon({icon}: {icon: string}): JSX.Element {
