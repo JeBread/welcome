@@ -11,9 +11,10 @@ export default function BottomTest() {
 			<Header />
 			<Bottom item='BottomTotal' />
 			<div className='flex w-full flex-row'>
-				<div className='flex justify-between gap-[41px]'></div>
-				<BottomAIReport item='Bottom 1' />
-				<BottomTop3 item='Bottom 2' />
+				<div className='flex justify-between gap-[41px]'>
+					<BottomAIReport item='Bottom 1' />
+					<BottomTop3 item='Bottom 2' />
+				</div>
 			</div>
 			<BottomDetailList item='Bottom 3' />
 		</div>
