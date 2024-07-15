@@ -3,7 +3,7 @@ import MidLine from '@/components/MidLine';
 
 export default function MidTest() {
 	return (
-		<div className='h-[401px] w-[1037px] rounded-[16px] bg-white p-[22px] shadow-box'>
+		<div className='flex size-full justify-between rounded-[16px] bg-blue-900 p-[22px] shadow-box'>
 			<MidLine />
 			<MidDoughnut />
 		</div>

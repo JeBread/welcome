@@ -34,8 +34,7 @@ dailyData.labels.forEach((label) => {
 		Math.floor(Math.random() * 100) + 1, // 10대
 		Math.floor(Math.random() * 100) + 1, // 20대
 		Math.floor(Math.random() * 100) + 1, // 30대
-		Math.floor(Math.random() * 100) + 1, // 40대
-		Math.floor(Math.random() * 100) + 1, // 50대 이상
+		Math.floor(Math.random() * 100) + 1, // 40대 이상
 	];
 });
 
@@ -70,8 +69,7 @@ weeklyData.labels.forEach((label) => {
 		Math.floor(Math.random() * 100) + 1, // 10대
 		Math.floor(Math.random() * 100) + 1, // 20대
 		Math.floor(Math.random() * 100) + 1, // 30대
-		Math.floor(Math.random() * 100) + 1, // 40대
-		Math.floor(Math.random() * 100) + 1, // 50대 이상
+		Math.floor(Math.random() * 100) + 1, // 40대 이상
 	];
 });
 
@@ -108,7 +106,6 @@ monthlyData.labels.forEach((label) => {
 		Math.floor(Math.random() * 100) + 1, // 10대
 		Math.floor(Math.random() * 100) + 1, // 20대
 		Math.floor(Math.random() * 100) + 1, // 30대
-		Math.floor(Math.random() * 100) + 1, // 40대
-		Math.floor(Math.random() * 100) + 1, // 50대 이상
+		Math.floor(Math.random() * 100) + 1, // 40대 이상
 	];
 });
