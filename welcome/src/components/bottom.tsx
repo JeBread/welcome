@@ -382,7 +382,7 @@ export default function Bottom(item: any) {
 				</div>
 				<div className='absolute left-[818px] top-[67px] h-[94px] w-[771px]'>
 					<div className='absolute left-0 top-0 h-[94px] w-[771px]'>
-						<div className='absolute left-[532px] top-0 h-[94px] w-[239px] rounded-[10px] bg-gray-100 hover:border hover:border-blue-900 hover:bg-white hover:shadow-[0px_6px_30px_#204f7d1f]'>
+						<div className='absolute left-[532px] top-0 h-[94px] w-[239px] cursor-pointer rounded-[10px] bg-gray-100 hover:border hover:border-blue-900 hover:bg-white hover:shadow-[0px_6px_30px_#204f7d1f]'>
 							<div className='absolute left-[100px] top-[27px] h-11 w-[105px]'>
 								<div className='relative h-11 w-[109px]'>
 									<div className='absolute left-0 top-0 w-[105px] text-base font-medium leading-[normal] tracking-normal text-gray-900 '>
@@ -395,7 +395,7 @@ export default function Bottom(item: any) {
 							</div>
 							<div className='absolute left-[26px] top-[23px] size-[52px] rounded-[38px] bg-blue-100' />
 						</div>
-						<div className=' absolute left-[266px] top-0 h-[94px] w-[239px] rounded-[10px] border border-solid border-blue-900 bg-[#fafafb] shadow-[0px_6px_30px_#204f7d1f]'>
+						<div className='absolute left-[266px] top-0 h-[94px] w-[239px] cursor-pointer rounded-[10px] border border-solid border-blue-900 bg-[#fafafb] shadow-[0px_6px_30px_#204f7d1f]'>
 							<div className='absolute left-[98px] top-[26px] h-11 w-[62px]'>
 								<div className='absolute left-0 top-0 w-[58px] font-medium leading-[normal] tracking-normal text-black'>
 									환불
@@ -409,7 +409,7 @@ export default function Bottom(item: any) {
 						<div className='absolute left-0 top-0 h-[94px] w-[239px] rounded-[10px] bg-gray-100 hover:border hover:border-blue-900 hover:bg-white hover:text-black hover:shadow-[0px_6px_30px_#204f7d1f]'>
 							<div className='absolute left-[99px] top-[26px] h-[46px] w-[57px]'>
 								<div className='relative h-[46px] w-[61px]'>
-									<div className='absolute left-0 top-0 w-[57px] text-base font-medium leading-[normal] tracking-normal text-gray-900'>
+									<div className='absolute left-0 top-0 w-[57px] cursor-pointer text-base font-medium leading-[normal] tracking-normal text-gray-900'>
 										배송
 									</div>
 									<div className='absolute left-0 top-[27px] w-[47px] text-sm font-normal leading-[normal] tracking-normal'>
