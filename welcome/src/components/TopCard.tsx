@@ -10,7 +10,7 @@ interface ItopCard {
 const TopCard = ({children}: ItopCard) => {
 	return (
 		<div
-			className={`absolute inset-0 flex cursor-pointer flex-col rounded-[16px] bg-white px-[22px] pb-[24px] pt-[22px] shadow-box `}>
+			className={`shadow-box absolute inset-0 flex cursor-pointer flex-col rounded-[16px] bg-white px-[22px] pb-[24px] pt-[22px] `}>
 			{children}
 		</div>
 	);
