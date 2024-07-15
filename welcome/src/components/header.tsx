@@ -61,7 +61,6 @@ const Header = () => {
 								key='delete'
 								className='text-danger'
 								color='danger'
-								shortcut='⌘⇧D'
 								startContent={
 									<DeleteDocumentIcon
 										className={cn(iconClasses, 'text-danger')}
