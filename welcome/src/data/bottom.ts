@@ -146,7 +146,7 @@ export const inquiryList: Inquiry[] = [
 		memberID: 'jebread',
 		spanTime: '5m 51s',
 		inquiryDate: '2024.07.04 21:09',
-		inquiryStatus: '승인',
+		inquiryStatus: '승인대기',
 	},
 	{
 		inquiryNo: 1851,
@@ -250,7 +250,7 @@ export const inquiryList: Inquiry[] = [
 		memberID: 'jebread',
 		spanTime: '2m 30s',
 		inquiryDate: '2024.07.03 20:42',
-		inquiryStatus: '승인',
+		inquiryStatus: '승인대기',
 	},
 	{
 		inquiryNo: 1838,

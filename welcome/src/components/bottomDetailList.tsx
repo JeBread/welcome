@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import {
 	Table,
@@ -25,35 +24,39 @@ import {useState, useEffect} from 'react';
 export default function BottomDetailList(item: any) {
 	const {isOpen, onOpen, onOpenChange} = useDisclosure();
 	const {selectedInquiryType, setSelectedInquiryType} = useBottomStore();
+	const [filteredInquiryList, setFilteredInquiryList] = useState(inquiryList);
+
+	useEffect(() => {
+		const filteredList = inquiryList.filter(
+			(item) => item.inquiryType === selectedInquiryType,
+		);
+		setFilteredInquiryList(filteredList);
+	}, [selectedInquiryType]);
+
+	const tableColumn = [
+		{title: 'No.', key: 'inquiryNo'},
+		{title: '문의 유형', key: 'inquiryType'},
+		{title: '회원 ID', key: 'memberID'},
+		{title: '소요 시간', key: 'spanTime'},
+		{title: '문의 일시', key: 'inquiryDate'},
+		{title: '처리 상태', key: 'inquiryStatus'},
+		{title: '상세 보기', key: 'detail'},
+	];
 
 	return (
 		<div className='relative mt-4 p-2'>
 			<Table isStriped aria-label='Example static collection table'>
 				<TableHeader>
-					<TableColumn className='h-16  text-[16px] font-medium text-gray-900'>
-						No.
-					</TableColumn>
-					<TableColumn className=' text-[16px] font-medium text-gray-900'>
-						문의 유형
-					</TableColumn>
-					<TableColumn className=' text-[16px] font-medium text-gray-900'>
-						회원 ID
-					</TableColumn>
-					<TableColumn className=' text-[16px] font-medium text-gray-900'>
-						소요 시간
-					</TableColumn>
-					<TableColumn className='  text-[16px] font-medium text-gray-900'>
-						문의 일시
-					</TableColumn>
-					<TableColumn className=' text-[16px] font-medium text-gray-900'>
-						처리 상태
-					</TableColumn>
-					<TableColumn className=' text-[16px] font-medium text-gray-900'>
-						상세 보기
-					</TableColumn>
+					{tableColumn.map((column, index) => (
+						<TableColumn
+							key={index}
+							className='h-16 text-[16px] font-medium text-gray-900'>
+							{column.title}
+						</TableColumn>
+					))}
 				</TableHeader>
 				<TableBody>
-					{inquiryList.map((item: any, index: number) => (
+					{filteredInquiryList.map((item: any, index: number) => (
 						<TableRow key={index}>
 							<TableCell className='h-16 text-[16px] font-medium text-gray-900'>
 								{item.inquiryNo}
@@ -85,7 +88,7 @@ export default function BottomDetailList(item: any) {
 									onPress={onOpen}
 									radius='sm'
 									style={{width: '95px', height: '35px'}}
-									className='border border-gray-900 border-opacity-30 bg-white  text-center text-sm font-bold leading-[normal] tracking-normal text-gray-900 hover:border-blue-900 hover:text-blue-900'>
+									className='border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-gray-900 hover:border-blue-900 hover:text-blue-900'>
 									보기
 								</Button>
 							</TableCell>
