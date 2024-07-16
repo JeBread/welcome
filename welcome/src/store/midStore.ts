@@ -9,6 +9,8 @@ interface MidState {
 	setselectCategory: (selectCategory: number) => void;
 	selectData: number[];
 	setSelectData: (selectData: number[]) => void;
+	specificData: string;
+	setSpecificData: (specificData: string) => void;
 }
 
 export const useMidStore = create<MidState>()(
@@ -20,6 +22,8 @@ export const useMidStore = create<MidState>()(
 			setselectCategory: (selectCategory: number) => set({selectCategory}),
 			selectData: [0, 0, 0, 0],
 			setSelectData: (selectData: number[]) => set({selectData}),
+			specificData: '-',
+			setSpecificData: (specificData: string) => set({specificData}),
 		}),
 		{
 			name: 'mid-storage',
