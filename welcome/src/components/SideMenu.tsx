@@ -3,6 +3,16 @@ import React, {useState} from 'react';
 import {Icon} from './Icon';
 import {FaAngleDown} from 'react-icons/fa6';
 import {VscCircleFilled} from 'react-icons/vsc';
+import type {IsideData} from '@/types/data';
+
+interface IsideMenu {
+	data: IsideData;
+	onClick: () => void;
+	onMouseEnter: () => void;
+	onMouseLeave: () => void;
+	isHovered: boolean;
+	isSelected: boolean;
+}
 
 const SideMenu = ({
 	data,
@@ -11,17 +21,22 @@ const SideMenu = ({
 	onMouseLeave,
 	isHovered,
 	isSelected,
-}: any) => {
+}: IsideMenu) => {
 	const [open, setOpen] = useState<boolean>(false);
 
+	const handleMenuClick = () => {
+		setOpen(!open);
+		onClick();
+	};
+
 	return (
-		<div className='bg-yellow-900'>
+		<div>
 			<div
-				onClick={onClick}
+				onClick={handleMenuClick}
 				onMouseEnter={onMouseEnter}
 				onMouseLeave={onMouseLeave}
 				className={`relative flex h-[54px] w-[214px] cursor-pointer items-center justify-between rounded-[8px] `}>
-				{/* 좌측 바 */}
+				{/* 좌측 꾸밈 바 */}
 				<div
 					className={`mr-[16px] h-[44px] w-[6px] rounded-r-[8px] ${isHovered ? 'bg-blue-900' : ''} `}></div>
 				<div
@@ -38,7 +53,7 @@ const SideMenu = ({
 
 				{data.sub && (
 					<div
-						className={`absolute right-0 z-10 transition duration-500 ease-in-out ${isSelected ? 'rotate-180' : ''}`}>
+						className={`absolute right-0 z-10 transition-transform duration-[600ms] ease-in-out ${open ? 'rotate-180' : ''}`}>
 						<FaAngleDown
 							style={{
 								fontSize: '14px',
@@ -50,26 +65,24 @@ const SideMenu = ({
 					</div>
 				)}
 			</div>
-			{/* 서브 */}
+			{/* 서브메뉴 */}
 			{data.sub && (
 				<div
-					className={`${isSelected ? 'max-h-[100px]' : 'invisible max-h-0'}  overflow-hidden text-center text-sm transition-all duration-500 ease-in-out`}>
-					{data['sub'].map((sub: string, i: number) => {
-						return (
-							<div
-								key={i}
-								className={`ml-[34px] flex cursor-pointer items-center gap-3 p-[3px] font-medium hover:text-blue-900`}>
-								<div>
-									<VscCircleFilled
-										style={{
-											fontSize: '8px',
-										}}
-									/>
-								</div>
-								<div className='text-[14px]'>{sub}</div>
+					className={`${open ? 'max-h-[200px]' : 'max-h-0'} overflow-hidden text-center text-sm transition-all duration-[600ms] ease-in-out`}>
+					{data.sub.map((sub: string, i: number) => (
+						<div
+							key={i}
+							className={`ml-[34px] flex cursor-pointer items-center gap-3 p-[4px] font-medium hover:text-blue-900`}>
+							<div>
+								<VscCircleFilled
+									style={{
+										fontSize: '8px',
+									}}
+								/>
 							</div>
-						);
-					})}
+							<div className='text-[14px]'>{sub}</div>
+						</div>
+					))}
 				</div>
 			)}
 		</div>

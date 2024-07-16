@@ -15,7 +15,13 @@ export interface ItopData {
 export interface IsideData {
 	icon: string;
 	title: string;
-	subtitle: string[];
+	sub?: string[];
+}
+
+export interface IsideData {
+	icon: string;
+	title: string;
+	sub?: string[];
 }
 
 export type TdataType =
