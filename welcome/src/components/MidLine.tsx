@@ -109,6 +109,8 @@ export default function MidLine() {
 							},
 							tooltip: {
 								usePointStyle: true,
+								borderWidth: 0,
+								borderColor: '#fff',
 								callbacks: {
 									labelPointStyle: function (context) {
 										return {
@@ -126,6 +128,15 @@ export default function MidLine() {
 											label += context.parsed.y + '건';
 										}
 										return label;
+									},
+									title: function (context) {
+										let title = '';
+										if (Number(context[0].label) >= 19) {
+											title = `6월 ${context[0].label}일`;
+										} else {
+											title = `7월 ${context[0].label}일`;
+										}
+										return title;
 									},
 								},
 							},
