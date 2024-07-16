@@ -13,7 +13,7 @@ type BotTestProps = {
 	};
 };
 
-export default function BotTest({item}: BotTestProps) {
+export default function BottomTop3Card({item}: BotTestProps) {
 	const {selectedInquiryType, setSelectedInquiryType} = useBottomStore();
 
 	return (
@@ -23,9 +23,9 @@ export default function BotTest({item}: BotTestProps) {
 				onClick={() => {
 					setSelectedInquiryType(item.inquiryType);
 				}}
-				className={`shadow-box relative flex h-[94px] w-[250px] cursor-pointer flex-row items-center gap-[20px] rounded-[16px] border bg-gray-100 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${
+				className={`shadow-box relative flex h-[94px] w-[250px] cursor-pointer flex-row items-center gap-[20px] rounded-[8px] border bg-gray-100 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${
 					selectedInquiryType === item.inquiryType
-						? 'border-blue-900 bg-white text-blue-900'
+						? 'shadow-select border-blue-900 bg-white text-blue-900'
 						: ''
 				}`}>
 				<div className='size-[52px]'>
@@ -39,7 +39,7 @@ export default function BotTest({item}: BotTestProps) {
 					)}
 				</div>
 				<div className=''>
-					<div className='absolute left-[110px] top-[23px] flex flex-col'>
+					<div className='absolute left-[106px] top-[23px] flex flex-col'>
 						<div>{item.inquiryType}</div>
 						<div>{item.total}건</div>
 					</div>

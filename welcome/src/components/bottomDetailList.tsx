@@ -43,13 +43,14 @@ export default function BottomDetailList(item: any) {
 	];
 
 	return (
-		<div className='relative mt-4 p-2'>
+		<div className='relative mt-4'>
 			<ScrollShadow className='h-[385px] w-full'>
 				<Table isStriped aria-label='Example static collection table'>
 					<TableHeader>
 						{tableColumns.map((column, index) => (
 							<TableColumn
 								key={index}
+								align='center'
 								className='h-16 text-[16px] font-medium text-gray-900'>
 								{column.title}
 							</TableColumn>
@@ -58,37 +59,36 @@ export default function BottomDetailList(item: any) {
 					<TableBody>
 						{filteredInquiryList.map((item: any, index: number) => (
 							<TableRow key={index}>
-								<TableCell className='h-16 text-[16px] font-medium text-gray-900'>
+								<TableCell className='h-16 text-[16px] font-normal text-gray-900'>
 									{item.inquiryNo}
 								</TableCell>
-								<TableCell className='text-[16px] font-medium text-gray-900'>
+								<TableCell className='text-[16px] font-normal text-gray-900'>
 									{item.inquiryType}
 								</TableCell>
-								<TableCell className='text-[16px] font-medium text-gray-900'>
+								<TableCell className='text-[16px] font-normal text-gray-900'>
 									{item.memberID}
 								</TableCell>
-								<TableCell className='text-[16px] font-medium text-gray-900'>
+								<TableCell className='text-[16px] font-normal text-gray-900'>
 									{item.spanTime}
 								</TableCell>
-								<TableCell className='text-[16px] font-medium text-gray-900'>
+								<TableCell className='text-[16px] font-normal text-gray-900'>
 									{item.inquiryDate}
 								</TableCell>
 								<TableCell
 									className={
 										item.inquiryStatus === '승인'
-											? 'font-bold text-green-900'
+											? 'text-[16px] font-medium text-green-900'
 											: item.inquiryStatus === '승인대기'
-												? 'font-bold text-yellow-900'
-												: 'font-bold text-red-900'
+												? 'text-[16px] font-medium text-yellow-900'
+												: 'text-[16px] font-medium text-red-900'
 									}>
 									{item.inquiryStatus}
 								</TableCell>
 								<TableCell>
 									<Button
 										onPress={onOpen}
-										radius='sm'
 										style={{width: '95px', height: '35px'}}
-										className='border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-gray-900 hover:border-blue-900 hover:text-blue-900'>
+										className='rounded border border-gray-900 border-opacity-30 bg-white text-center text-sm font-bold leading-[normal] tracking-normal text-gray-900 hover:border-blue-900 hover:text-blue-900'>
 										보기
 									</Button>
 								</TableCell>
