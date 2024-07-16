@@ -15,7 +15,7 @@ import Link from 'next/link';
 
 const Header = () => {
 	const iconClasses =
-		'text-xl text-default-500 pointer-events-none flex-shrink-0';
+		'text-[16px] text-default-500 pointer-events-none flex-shrink-0';
 
 	return (
 		<header
@@ -31,7 +31,6 @@ const Header = () => {
 					/>
 				</div>
 			</Link>
-			{/* <p className="user-name self-center ml-[8px]">관리자 님</p> */}
 			<div className='header-btn-group flex gap-4'>
 				<Dropdown>
 					<DropdownTrigger>
