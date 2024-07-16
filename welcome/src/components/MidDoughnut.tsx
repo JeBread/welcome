@@ -1,11 +1,14 @@
+//https://piechart-outlabels.netlify.app/
 'use client';
 
 import React, {useEffect, useState} from 'react';
 import Title from './Title';
 import {useMidStore} from '@/store/midStore';
 
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 import {Doughnut} from 'react-chartjs-2';
-import {defaults} from 'chart.js/auto';
+import {defaults, Chart} from 'chart.js/auto';
 import {
 	dailyAgeGroupData,
 	weeklyAgeGroupData,
@@ -14,6 +17,7 @@ import {
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
+Chart.register(ChartDataLabels);
 
 const MidDoughnut = () => {
 	const {
@@ -58,6 +62,15 @@ const MidDoughnut = () => {
 								plugins: {
 									legend: {
 										display: false,
+									},
+									datalabels: {
+										display: 'auto',
+										color: '#fff',
+										anchor: 'center',
+										clip: false,
+										formatter: function (value, context) {
+											return ((value / all) * 100).toFixed() + '%';
+										},
 									},
 									tooltip: {
 										usePointStyle: true,

@@ -9,6 +9,7 @@ import {dailyData, monthlyData, weeklyData} from '@/data/mid';
 import {Line} from 'react-chartjs-2';
 import {CategoryScale} from 'chart.js';
 import {Chart, defaults} from 'chart.js/auto';
+
 Chart.register(CategoryScale);
 
 defaults.maintainAspectRatio = false;
@@ -105,6 +106,9 @@ export default function MidLine() {
 						},
 						plugins: {
 							legend: {
+								display: false,
+							},
+							datalabels: {
 								display: false,
 							},
 							tooltip: {
