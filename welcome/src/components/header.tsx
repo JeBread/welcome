@@ -7,7 +7,6 @@ import {
 	DropdownTrigger,
 	DropdownMenu,
 	DropdownItem,
-	cn,
 } from '@nextui-org/react';
 import {FiLogOut} from 'react-icons/fi';
 import {FaUser} from 'react-icons/fa';
@@ -19,17 +18,17 @@ const Header = () => {
 
 	return (
 		<header
-			className='sticky top-0 z-[1000] flex h-[60px] min-w-[1500px] items-center justify-between border-b
-    border-solid bg-white px-[20px] py-[14px]'>
-			<div className='logo flex gap-[10px]'>
+			className='sticky top-0 z-[1000] flex h-[60px] min-w-[1500px] items-center justify-between overflow-hidden
+    border-b border-solid bg-white px-[20px] py-[14px]'>
+			<div className='flex cursor-pointer gap-[10px]'>
 				<Image
 					alt='Megastudy logo'
 					width={150}
 					height={30}
 					src='/mega_logo.jpg'
 				/>
-				{/* <p className="user-name self-center ml-[8px]">관리자 님</p> */}
 			</div>
+			{/* <p className="user-name self-center ml-[8px]">관리자 님</p> */}
 			<div className='header-btn-group flex gap-4'>
 				<Dropdown>
 					<DropdownTrigger>

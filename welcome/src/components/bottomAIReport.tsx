@@ -4,7 +4,7 @@ import {useBottomStore} from '@/store/bottomStore';
 import {aiReportList} from '@/data/bottom';
 
 export default function BottomAIReport(item: any) {
-	const {selectedInquiry, setSelectedInquiry} = useBottomStore();
+	const {selectedInquiryType, setSelectedInquiryType} = useBottomStore();
 	return (
 		<>
 			<div>

@@ -24,7 +24,7 @@ import {useState, useEffect} from 'react';
 
 export default function BottomDetailList(item: any) {
 	const {isOpen, onOpen, onOpenChange} = useDisclosure();
-	const {selectedInquiry, setSelectedInquiry} = useBottomStore();
+	const {selectedInquiryType, setSelectedInquiryType} = useBottomStore();
 
 	return (
 		<div className='relative mt-4 p-2'>
