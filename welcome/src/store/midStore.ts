@@ -1,4 +1,3 @@
-import {TdataType} from '@/types/data';
 import {create} from 'zustand';
 import {persist} from 'zustand/middleware';
 

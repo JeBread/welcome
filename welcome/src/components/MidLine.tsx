@@ -134,13 +134,17 @@ export default function MidLine() {
 										return label;
 									},
 									title: function (context) {
-										let title = '';
-										if (Number(context[0].label) >= 19) {
-											title = `6월 ${context[0].label}일`;
+										if (selectIndex !== 0) {
+											let title = '';
+											if (Number(context[0].label) >= 19) {
+												title = `6월 ${context[0].label}일`;
+											} else {
+												title = `7월 ${context[0].label}일`;
+											}
+											return title;
 										} else {
-											title = `7월 ${context[0].label}일`;
+											return context[0].label;
 										}
-										return title;
 									},
 								},
 							},
