@@ -1,11 +1,13 @@
 import MidDoughnut from '@/components/MidDoughnut';
 import MidLine from '@/components/MidLine';
 
-export default function MidTest() {
+const MidComponent = () => {
 	return (
-		<div className='flex size-full justify-between gap-[41px] rounded-[16px] bg-blue-900 p-[22px] shadow-box'>
+		<div className='mt-[60px] flex w-full justify-between gap-[41px] rounded-[16px] '>
 			<MidLine />
 			<MidDoughnut />
 		</div>
 	);
-}
+};
+
+export default MidComponent;

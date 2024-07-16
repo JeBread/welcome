@@ -19,7 +19,7 @@ const Header = () => {
 
 	return (
 		<header
-			className='sticky top-0 z-[1000] flex h-[60px] min-w-[1500px] items-center justify-between overflow-hidden
+			className='fixed top-0 z-[1000] flex h-[60px] w-full items-center justify-between overflow-hidden
     border-b border-solid bg-white px-[20px] py-[14px]'>
 			<Link href='/'>
 				<div className='flex cursor-pointer gap-[10px]'>

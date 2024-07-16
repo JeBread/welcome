@@ -1,24 +1,22 @@
+import BottomComponent from '@/components/BottomComponent';
+import Header from '@/components/header';
+import MidComponent from '@/components/MidComponent';
 import Side from '@/components/Side';
-import Top from '@/components/Top';
-import TopHoverCard from '@/components/TopHoverCard';
-import {topData} from '@/data/top';
+import TopComponent from '@/components/TopComponent';
 
 export default function Home() {
 	return (
 		<>
-			<div className='flex'>
+			<Header />
+			<div className='relative w-full'>
 				<Side />
-				<div className='flex justify-between gap-[41px]'>
-					{topData.map((top, index) => {
-						return (
-							<div
-								key={index}
-								className='relative h-[221px] w-full min-w-[372px] '>
-								<Top data={top} />
-								<TopHoverCard data={top} />
-							</div>
-						);
-					})}
+				<div className='absolute right-0 top-[60px] bg-gray-200'>
+					<div>{/* 상단 내용이 들어갑니다 */}</div>
+					<div className='py-[48px] pl-[34px] pr-[30px]'>
+						<TopComponent />
+						<MidComponent />
+						<BottomComponent />
+					</div>
 				</div>
 			</div>
 		</>

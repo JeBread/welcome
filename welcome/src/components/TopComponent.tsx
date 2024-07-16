@@ -1,8 +1,8 @@
 import Top from '@/components/Top';
-import React from 'react';
-import {topData} from '@/data/top';
 import TopHoverCard from '@/components/TopHoverCard';
-export default function TopTestPage() {
+import {topData} from '@/data/top';
+
+const TopComponent = () => {
 	return (
 		<div className='flex justify-between gap-[41px]'>
 			{topData.map((top, index) => {
@@ -15,4 +15,6 @@ export default function TopTestPage() {
 			})}
 		</div>
 	);
-}
+};
+
+export default TopComponent;
