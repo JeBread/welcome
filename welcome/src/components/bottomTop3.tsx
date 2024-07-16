@@ -1,8 +1,11 @@
 import React from 'react';
-import {Icon} from './Icon';
-import {Card, CardHeader, Image} from '@nextui-org/react';
+// import {Icon} from './Icon';
+// import {Card, CardHeader, Image} from '@nextui-org/react';
+// import {PiPackageBold} from 'react-icons/pi';
+import BotTest from './botTest';
+import {aiReportList} from '@/data/bottom';
 
-export default function BottomTop3(item: any) {
+export default function BottomTop3() {
 	return (
 		<>
 			<div className='ml-11'>
@@ -11,7 +14,12 @@ export default function BottomTop3(item: any) {
 						주요 문의 유형 TOP3
 					</h2>
 				</div>
-				<div className='mt-4 flex justify-between'>
+				<div className='mt-10 flex gap-4'>
+					{aiReportList.map((item: any, index: number) => (
+						<BotTest key={index} item={item} />
+					))}
+				</div>
+				{/* <div className='mt-4 flex justify-between'>
 					<div className='absolute left-[818px] top-[67px] h-[94px] w-[771px]'>
 						<div className='absolute left-0 top-0 h-[94px] w-[771px]'>
 							<div className='absolute left-[532px] top-0 h-[94px] w-[239px] cursor-pointer rounded-[10px] bg-gray-100 hover:border hover:border-blue-900 hover:bg-white hover:shadow-[0px_6px_30px_#204f7d1f]'>
@@ -73,9 +81,9 @@ export default function BottomTop3(item: any) {
 							width={24}
 							height={24}
 						/>
-					</div>
+					</div> */}
 
-					{/* <div className='relative mt-6 flex h-[94px] w-[771px] justify-between'>
+				{/* <div className='relative mt-6 flex h-[94px] w-[771px] justify-between'>
 					<div className='flex size-full'>
 						<div className='flex h-full w-[239px] cursor-pointer flex-col justify-between rounded-[10px] bg-gray-100 p-4 hover:border hover:border-blue-900 hover:bg-white hover:shadow-[0px_6px_30px_#204f7d1f]'>
 							<div className='flex flex-col items-center'>
@@ -117,8 +125,8 @@ export default function BottomTop3(item: any) {
 					</div>
 				</div> */}
 
-					{/* nextUI Card 방식 */}
-					{/* <Card className='max-w-[400px] cursor-pointer bg-gray-100'>
+				{/* nextUI Card 방식 */}
+				{/* <Card className='max-w-[400px] cursor-pointer bg-gray-100'>
 						<CardHeader className='flex gap-3'>
 							<Icon icon='package' />
 							<div className='flex flex-col'>
@@ -146,8 +154,8 @@ export default function BottomTop3(item: any) {
 						</CardHeader>
 					</Card> */}
 
-					{/* 기존 개별 박스 방식 */}
-					{/* <div className='shadow-box relative inset-0 flex cursor-pointer flex-col rounded-[16px] bg-gray-100 px-[22px] pb-[24px] pt-[22px]'>
+				{/* 기존 개별 박스 방식 */}
+				{/* <div className='shadow-box relative inset-0 flex cursor-pointer flex-col rounded-[16px] bg-gray-100 px-[22px] pb-[24px] pt-[22px]'>
 						배송
 						<div className='absolute right-[22px] top-[22px]'>
 							<div className='flex size-[84px] items-center justify-center rounded-[20px]'>
@@ -171,7 +179,7 @@ export default function BottomTop3(item: any) {
 							</div>
 						</div>
 					</div> */}
-				</div>
+				{/* </div> */}
 			</div>
 		</>
 	);

@@ -19,8 +19,12 @@ import {useBottomStore} from '@/store/bottomStore';
 // }
 
 export default function Bottom(item: any) {
-	const {inquiryStatus, selectedInquiry, setInquiryStatus, setSelectedInquiry} =
-		useBottomStore();
+	const {
+		inquiryStatus,
+		selectedInquiryType,
+		setInquiryStatus,
+		setSelectedInquiryType,
+	} = useBottomStore();
 
 	interface aiReport {
 		inquiryType: string;
