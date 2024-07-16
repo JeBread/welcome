@@ -32,46 +32,54 @@ const MidDoughnut = () => {
 		if (selectCategory === 0) {
 			setSelectData(dailyAgeGroupData[`${selectIndex}:00`]);
 		} else if (selectCategory === 1) {
-			setSelectData(weeklyAgeGroupData[selectIndex]);
+			setSelectData(weeklyAgeGroupData[selectIndex + 1]);
 		} else {
-			setSelectData(monthlyAgeGroupData[selectIndex]);
+			setSelectData(monthlyAgeGroupData[selectIndex + 1]);
 		}
 		//도넛 차트 가운데에 들어갈 데이터의 총 합을 낸다.
+	}, [selectIndex, selectCategory, selectData, setSelectData]);
+
+	useEffect(() => {
 		if (selectData) {
 			const sum = selectData.reduce((sum, current) => sum + current, 0);
 			setAll(sum);
 		}
-		console.log(selectData);
-	}, [selectIndex, selectCategory, selectData, setSelectData]);
+	}, [selectData]);
 
 	return (
 		<div className='flex h-[401px] w-[533px] flex-col rounded-[16px] bg-white p-[22px] shadow-box'>
 			<Title title={'기간별 이용자 연령분포'} />
 			<div className='flex size-full flex-col items-center justify-center'>
 				<div className='relative mt-auto flex size-[252px]'>
-					<Doughnut
-						options={{
-							cutout: '60%',
-							plugins: {
-								legend: {
-									display: false,
+					{selectData && (
+						<Doughnut
+							options={{
+								cutout: '60%',
+								plugins: {
+									legend: {
+										display: false,
+									},
 								},
-							},
-						}}
-						data={{
-							labels: ['10대', '20대', '30대', '40대'],
-							datasets: [
-								{
-									label: 'test',
-									data: selectData,
-									backgroundColor: ['#FD5454', '#FFC327', '#00B69B', '#0081FF'],
-									borderWidth: 6,
-									borderRadius: 8,
-								},
-							],
-						}}
-					/>
-
+							}}
+							data={{
+								labels: ['10대', '20대', '30대', '40대'],
+								datasets: [
+									{
+										label: 'test',
+										data: selectData,
+										backgroundColor: [
+											'#FD5454',
+											'#FFC327',
+											'#00B69B',
+											'#0081FF',
+										],
+										borderWidth: 6,
+										borderRadius: 8,
+									},
+								],
+							}}
+						/>
+					)}
 					<div className='absolute left-1/2 top-1/2 mt-[-2px] flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 font-bold'>
 						<span className='text-[45px]'>{all}</span>
 						<span className='mt-[22px] text-[16px]'>건</span>

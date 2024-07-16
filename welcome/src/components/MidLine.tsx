@@ -95,7 +95,6 @@ export default function MidLine() {
 							if (elements[0]) {
 								const i = elements[0].index;
 								setselectIndex(i);
-								console.log(i);
 							}
 							const dataset = chart.data.datasets[0] as any;
 							dataset.pointBackgroundColor = dataset.data.map(
@@ -107,6 +106,28 @@ export default function MidLine() {
 						plugins: {
 							legend: {
 								display: false,
+							},
+							tooltip: {
+								usePointStyle: true,
+								callbacks: {
+									labelPointStyle: function (context) {
+										return {
+											pointStyle: 'circle',
+											rotation: 0,
+										};
+									},
+									label: function (context) {
+										let label = context.dataset.label || '';
+
+										if (label) {
+											label += ': ';
+										}
+										if (context.parsed.y !== null) {
+											label += context.parsed.y + '건';
+										}
+										return label;
+									},
+								},
 							},
 						},
 					}}
