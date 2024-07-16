@@ -32,7 +32,7 @@ const MidDoughnut = () => {
 		if (selectCategory === 0) {
 			setSelectData(dailyAgeGroupData[`${selectIndex}:00`]);
 		} else if (selectCategory === 1) {
-			setSelectData(weeklyAgeGroupData[selectIndex + 1]);
+			setSelectData(weeklyAgeGroupData[selectIndex + 12]);
 		} else {
 			setSelectData(monthlyAgeGroupData[selectIndex + 1]);
 		}
@@ -48,7 +48,7 @@ const MidDoughnut = () => {
 
 	return (
 		<div className='flex h-[401px] w-[533px] flex-col rounded-[16px] bg-white p-[22px] shadow-box'>
-			<Title title={'기간별 이용자 연령분포'} />
+			<Title title={`${'기간별'} 이용자 연령분포`} />
 			<div className='flex size-full flex-col items-center justify-center'>
 				<div className='relative mt-auto flex size-[252px]'>
 					{selectData && (
@@ -59,13 +59,37 @@ const MidDoughnut = () => {
 									legend: {
 										display: false,
 									},
+									tooltip: {
+										usePointStyle: true,
+										borderWidth: 0,
+										borderColor: '#fff',
+										callbacks: {
+											labelPointStyle: function (context) {
+												return {
+													pointStyle: 'circle',
+													rotation: 0,
+												};
+											},
+											label: function (context) {
+												let label = context.dataset.label || '';
+
+												if (label) {
+													label += ': ';
+												}
+												if (context.parsed !== null) {
+													label += context.parsed + '건';
+												}
+												return label;
+											},
+										},
+									},
 								},
 							}}
 							data={{
 								labels: ['10대', '20대', '30대', '40대'],
 								datasets: [
 									{
-										label: 'test',
+										label: '상담 건수',
 										data: selectData,
 										backgroundColor: [
 											'#FD5454',
