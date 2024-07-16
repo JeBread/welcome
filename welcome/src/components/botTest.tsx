@@ -1,8 +1,9 @@
 'use client';
-import react, {use} from 'react';
+import react from 'react';
 import {PiPackageBold} from 'react-icons/pi';
 import {useBottomStore} from '@/store/bottomStore';
-import {useState} from 'react';
+import {RiRefund2Line} from 'react-icons/ri';
+import {TbAlertCircle} from 'react-icons/tb';
 
 type BotTestProps = {
 	item: {
@@ -29,7 +30,13 @@ export default function BotTest({item}: BotTestProps) {
 				}`}>
 				<div className='size-[52px]'>
 					<div className='absolute left-[26px] top-[23px] size-[52px] rounded-[38px] bg-blue-100'></div>
-					<PiPackageBold className='absolute left-[39px] top-[36px] size-[26px] text-blue-900' />
+					{item.inquiryType === '환불' ? (
+						<RiRefund2Line className='absolute left-[39px] top-[36px] size-[26px] text-blue-900' />
+					) : item.inquiryType === '배송' ? (
+						<PiPackageBold className='absolute left-[39px] top-[36px] size-[26px] text-blue-900' />
+					) : (
+						<TbAlertCircle className='absolute left-[39px] top-[36px] size-[26px] text-blue-900' />
+					)}
 				</div>
 				<div className=''>
 					<div className='absolute left-[110px] top-[23px] flex flex-col'>

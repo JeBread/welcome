@@ -15,10 +15,10 @@ export const useBottomStore = create<BottomState>()(
 		(set) => ({
 			inquiryStatus: null,
 			setInquiryStatus: (inquiryStatus: string) => set({inquiryStatus}),
-			selectedInquiryType: '환불',
+			selectedInquiryType: '',
 			setSelectedInquiryType: (selectedInquiryType: string) =>
 				set({selectedInquiryType}),
-			selectedInquiryTotal: null,
+			selectedInquiryTotal: 0,
 			setselectedInquiryTotal: (selectedInquiryTotal: number) =>
 				set({selectedInquiryTotal}),
 		}),
