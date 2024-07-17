@@ -25,7 +25,7 @@ export default function BottomAIReport(item: any) {
 		<>
 			<div>
 				<h2 className='relative left-[29px] top-[10px] text-[20px] font-medium text-black'>
-					상세 문의 내역
+					최근 문의 내역
 				</h2>
 				<div className='relative left-[22px] top-[41px] h-[92px] w-[755px] rounded-lg bg-gray-100'>
 					<p className='relative left-[29px] top-[21px] text-base font-normal leading-[25.6px] tracking-normal text-transparent '>
