@@ -31,17 +31,27 @@ export default function BelowHeader() {
 		<div className='flex justify-between pl-[34px] pr-[30px] pt-[40px]'>
 			<div className='flex'>
 				<FaRegCalendar className='mt-[10px] size-[24px]' />
-				<div className='ml-[12px] text-[28px]'>AI 챗봇 서비스 일별 현황 </div>
-				<div className='top-[10px] ml-[12px] mt-[14px] text-[16px]'>
-					현재 {timeString} 기준
+				<div className='ml-[12px] text-[28px] font-medium'>
+					AI 챗봇 서비스 일별 현황
+				</div>
+				<div className='ml-[13px] mt-px flex items-center text-[16px]'>
+					<div className='flex items-center'>
+						<div className='mb-[2px] mr-[13px] font-semibold text-blue-900'>
+							{' '}
+							|{' '}
+						</div>
+						현재 {timeString} 기준
+					</div>
 				</div>
 			</div>
 			<div>
 				<Button
-					className='bg-blue-900 text-white'
+					className='rounded-[8px] bg-blue-900 pl-[22px] pr-[26px] text-white'
 					onPress={onOpen}
 					// startContent={<IoAnalyticsOutline />}
-					startContent={<TbDeviceAnalytics className='size-[18px]' />}>
+					startContent={
+						<TbDeviceAnalytics className='mr-[3px] mt-[1.5px] size-[18px]' />
+					}>
 					AI분석데이터
 				</Button>
 			</div>
