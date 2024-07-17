@@ -1,5 +1,4 @@
 'use client';
-import react from 'react';
 import {PiPackageBold} from 'react-icons/pi';
 import {useBottomStore} from '@/store/bottomStore';
 import {RiRefund2Line} from 'react-icons/ri';
@@ -23,9 +22,9 @@ export default function BottomTop3Card({item}: BotTestProps) {
 				onClick={() => {
 					setSelectedInquiryType(item.inquiryType);
 				}}
-				className={`shadow-box relative flex h-[94px] w-[250px] cursor-pointer flex-row items-center gap-[20px] rounded-[8px] border bg-gray-100 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${
+				className={`relative flex h-[94px] w-[250px] cursor-pointer flex-row items-center gap-[20px] rounded-[8px] border bg-gray-100 shadow-box hover:border-blue-900 hover:bg-white hover:text-blue-900 ${
 					selectedInquiryType === item.inquiryType
-						? 'shadow-select border-blue-900 bg-white text-blue-900'
+						? 'border-blue-900 bg-white text-blue-900 shadow-select'
 						: ''
 				}`}>
 				<div className='size-[52px]'>
