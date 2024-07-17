@@ -1,4 +1,3 @@
-import {TdataType} from '@/types/data';
 import {create} from 'zustand';
 import {persist} from 'zustand/middleware';
 
@@ -22,7 +21,7 @@ export const useMidStore = create<MidState>()(
 			setselectCategory: (selectCategory: number) => set({selectCategory}),
 			selectData: [0, 0, 0, 0],
 			setSelectData: (selectData: number[]) => set({selectData}),
-			specificData: '-',
+			specificData: '',
 			setSpecificData: (specificData: string) => set({specificData}),
 		}),
 		{
