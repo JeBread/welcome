@@ -15,14 +15,25 @@ import {useDisclosure} from '@nextui-org/react';
 
 export default function BelowHeader() {
 	const {isOpen, onOpen, onOpenChange} = useDisclosure();
+	let now = new Date();
+	console.log(now);
+
+	let year = now.getFullYear(); // 년도
+	let month = ('0' + (now.getMonth() + 1)).slice(-2); // 월
+	let day = ('0' + now.getDate()).slice(-2); // 날짜
+	let hours = ('0' + now.getHours()).slice(-2); // 시
+	let minutes = ('0' + now.getMinutes()).slice(-2); // 분
+
+	let timeString = `${year}.${month}.${day} ${hours}:${minutes}`;
+	console.log(timeString);
 
 	return (
 		<div className='flex justify-between pl-[34px] pr-[30px] pt-[40px]'>
 			<div className='flex'>
 				<FaRegCalendar className='mt-[10px] size-[24px]' />
 				<div className='ml-[12px] text-[28px]'>AI 챗봇 서비스 일별 현황 </div>
-				<div className='top-[10px] ml-[12px] mt-[12px] text-[16px]'>
-					현재 yyyy.mm.dd hh:mm 기준
+				<div className='top-[10px] ml-[12px] mt-[14px] text-[16px]'>
+					현재 {timeString} 기준
 				</div>
 			</div>
 			<div>
