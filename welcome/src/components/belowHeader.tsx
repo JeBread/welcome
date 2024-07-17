@@ -12,6 +12,7 @@ import {IoAnalyticsOutline} from 'react-icons/io5';
 import {TbDeviceAnalytics} from 'react-icons/tb';
 import {FaRegCalendar} from 'react-icons/fa';
 import {useDisclosure} from '@nextui-org/react';
+import {BsPrinter} from 'react-icons/bs';
 
 export default function BelowHeader() {
 	const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -59,8 +60,16 @@ export default function BelowHeader() {
 				<ModalContent>
 					{(onClose) => (
 						<>
-							<ModalHeader className='flex flex-col gap-1'>
+							<ModalHeader className='flex justify-between gap-1'>
 								Modal Title
+								<Button
+									size='sm'
+									color='warning'
+									variant='shadow'
+									startContent={<BsPrinter className='size-[14px]' />}
+									className='mr-4 rounded-[8px] text-[12px]'>
+									출력하기
+								</Button>
 							</ModalHeader>
 							<ModalBody>
 								<p>

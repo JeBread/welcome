@@ -23,7 +23,7 @@ export default function BottomTop3Card({item}: BotTestProps) {
 				}}
 				className={`shadow-box relative flex h-[94px] w-[250px] cursor-pointer flex-row items-center gap-[20px] rounded-[8px] border bg-gray-100 transition-all duration-200 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${
 					selectedInquiryType === item.inquiryType
-						? 'border-blue-900 bg-white text-blue-900 shadow-select'
+						? 'shadow-select border-blue-900 bg-white text-blue-900'
 						: ''
 				}`}>
 				<div className='size-[52px]'>
