@@ -131,20 +131,22 @@ const MidDoughnut = () => {
 
 				<div className='mt-[25px] flex w-full justify-center gap-5'>
 					<div className='flex items-center gap-2'>
-						<div className='size-[15px]  gap-2 rounded-[5px] bg-red-900'></div>
-						<span className='font-medium text-black'>10대</span>
+						<div className='size-[12px] gap-2 rounded-[3px] bg-red-900'></div>
+						<span className='text-[14px] font-medium text-gray-900'>10대</span>
 					</div>
 					<div className='flex items-center gap-2'>
-						<div className='size-[15px]  gap-2 rounded-[5px] bg-yellow-900'></div>
-						<span className='font-medium text-black'>20대</span>
+						<div className='size-[12px] gap-2 rounded-[3px] bg-yellow-900'></div>
+						<span className='text-[14px] font-medium text-gray-900'>20대</span>
 					</div>
 					<div className='flex items-center gap-2'>
-						<div className='size-[15px]  gap-2 rounded-[5px] bg-green-900'></div>
-						<span className='font-medium text-black'>30대</span>
+						<div className='size-[12px] gap-2 rounded-[3px] bg-green-900'></div>
+						<span className='text-[14px] font-medium text-gray-900'>30대</span>
 					</div>
 					<div className='flex items-center gap-2'>
-						<div className='size-[15px]  gap-2 rounded-[5px] bg-blue-900'></div>
-						<span className='font-medium text-black'>40대 이상</span>
+						<div className='size-[12px] gap-2 rounded-[3px] bg-blue-900'></div>
+						<span className='text-[14px] font-medium text-gray-900'>
+							40대 이상
+						</span>
 					</div>
 				</div>
 			</div>
