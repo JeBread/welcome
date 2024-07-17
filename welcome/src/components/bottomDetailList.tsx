@@ -26,10 +26,14 @@ export default function BottomDetailList(item: any) {
 	const [filteredInquiryList, setFilteredInquiryList] = useState(inquiryList);
 
 	useEffect(() => {
-		const filteredList = inquiryList.filter(
-			(item) => item.inquiryType === selectedInquiryType,
-		);
-		setFilteredInquiryList(filteredList);
+		if (selectedInquiryType) {
+			const filteredList = inquiryList.filter(
+				(item) => item.inquiryType === selectedInquiryType,
+			);
+			setFilteredInquiryList(filteredList);
+		} else {
+			setFilteredInquiryList(inquiryList.slice(0, 10));
+		}
 	}, [selectedInquiryType]);
 
 	const tableColumns = [
