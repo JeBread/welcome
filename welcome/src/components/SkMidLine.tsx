@@ -1,17 +1,10 @@
 'use client';
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import Title from '@/components/Title';
 import {useMidStore} from '@/store/midStore';
 
-import {
-	dailyAgeGroupData,
-	dailyData,
-	monthlyAgeGroupData,
-	monthlyData,
-	weeklyAgeGroupData,
-	weeklyData,
-} from '@/data/mid';
+import {dailyData, monthlyData, weeklyData} from '@/data/mid';
 
 import {Line} from 'react-chartjs-2';
 import {CategoryScale} from 'chart.js';
@@ -28,10 +21,22 @@ export default function MidLine() {
 		setselectIndex,
 		selectCategory,
 		setselectCategory,
-		selectData,
 		setSelectData,
 		setSpecificData,
 	} = useMidStore();
+
+	const resetPointColor = (data: any) => {
+		console.log(data);
+		if (data) {
+			data.datasets[0].pointBackgroundColor.map(() => 'rgb(0,129,255)');
+			setselectIndex(0);
+			if (data['0:00']) {
+				setSelectData(data[`${selectIndex}:00`]);
+			} else {
+				setSelectData(data[selectIndex]);
+			}
+		}
+	};
 
 	return (
 		<div className='flex h-[401px] w-[1037px] flex-col items-center rounded-[16px] bg-white p-[22px] shadow-box'>
@@ -41,10 +46,7 @@ export default function MidLine() {
 					<button
 						onClick={() => {
 							setselectCategory(0);
-							setSpecificData(
-								`7월 18일 ${dailyData.labels[dailyData.labels.length - 1]}`,
-							);
-							setSelectData(dailyAgeGroupData[23]);
+							resetPointColor(dailyData);
 						}}
 						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition hover:border-1.5 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${selectCategory === 0 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
 						시간대별
@@ -52,8 +54,7 @@ export default function MidLine() {
 					<button
 						onClick={() => {
 							setselectCategory(1);
-							setSpecificData('7월 18일');
-							setSelectData(weeklyAgeGroupData[6]);
+							resetPointColor(monthlyData);
 						}}
 						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition hover:border-1.5 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${selectCategory === 1 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
 						1주일
@@ -61,8 +62,7 @@ export default function MidLine() {
 					<button
 						onClick={() => {
 							setselectCategory(2);
-							setSpecificData('7월 18일');
-							setSelectData(monthlyAgeGroupData[29]);
+							resetPointColor(weeklyData);
 						}}
 						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition hover:border-1.5 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${selectCategory === 2 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
 						1개월
@@ -96,7 +96,7 @@ export default function MidLine() {
 							},
 						},
 						onClick: (event: any, elements, chart) => {
-							if (chart.tooltip) {
+							if (chart.tooltip?.title[0]) {
 								setSpecificData(chart.tooltip?.title[0]);
 							}
 							if (elements[0]) {
@@ -140,19 +140,10 @@ export default function MidLine() {
 										return label;
 									},
 									title: function (context) {
-										let title = '';
 										if (selectCategory === 0) {
-											const regex = /^(\d+):/;
-											const match = context[0].label.match(regex);
-											const thisHour = new Date().getHours();
-											if (match) {
-												if (Number(match[1]) <= thisHour) {
-													return `7월 18일 ${context[0].label}`;
-												} else {
-													return `7월 17일 ${context[0].label}`;
-												}
-											}
+											return context[0].label;
 										} else {
+											let title = '';
 											if (Number(context[0].label) >= 19) {
 												title = `6월 ${context[0].label}일`;
 											} else {

@@ -14,40 +14,38 @@ import {
 	weeklyAgeGroupData,
 	monthlyAgeGroupData,
 } from '@/data/mid';
-import TotalValuePlugin from '@/utils/totalValueData';
-// import customDataLabel from '@/utils/customeDataLabel';
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
 Chart.register(ChartDataLabels);
-// Chart.register(TotalValuePlugin);
-// Chart.register(customDataLabel);
 
 const MidDoughnut = () => {
-	const {
-		selectIndex,
-		setselectIndex,
-		selectCategory,
-		setselectCategory,
-		selectData,
-		setSelectData,
-		specificData,
-		setSpecificData,
-	} = useMidStore();
+	const {selectIndex, selectCategory, selectData, setSelectData, specificData} =
+		useMidStore();
 
 	const [all, setAll] = useState<number>(0);
 
 	useEffect(() => {
 		//도넛 차트에 사용 될 데이터를 정한다.
 		if (selectCategory === 0) {
-			setSelectData(dailyAgeGroupData[`${selectIndex}:00`]);
+			setSelectData(dailyAgeGroupData[selectIndex]);
 		} else if (selectCategory === 1) {
-			setSelectData(weeklyAgeGroupData[selectIndex + 12]);
+			setSelectData(weeklyAgeGroupData[selectIndex]);
 		} else {
-			setSelectData(monthlyAgeGroupData[selectIndex + 1]);
+			setSelectData(monthlyAgeGroupData[selectIndex]);
 		}
 		//도넛 차트 가운데에 들어갈 데이터의 총 합을 낸다.
-	}, [selectIndex, selectCategory, selectData, setSelectData]);
+	}, [selectIndex, selectData, setSelectData, selectCategory]);
+
+	useEffect(() => {
+		if (selectCategory === 0) {
+			setSelectData(dailyAgeGroupData[23]);
+		} else if (selectCategory === 1) {
+			setSelectData(weeklyAgeGroupData[6]);
+		} else {
+			setSelectData(monthlyAgeGroupData[29]);
+		}
+	}, [selectCategory, setSelectData]);
 
 	useEffect(() => {
 		if (selectData) {
