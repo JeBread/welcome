@@ -65,7 +65,7 @@ export const dailyData = {
 
 // 각 날짜별 연령대별 비율 (도넛 차트 데이터)
 export const weeklyAgeGroupData: TdoughnutDataType = {};
-Array.from({length: 7}, (_, i) => `${i + 12}`).forEach((label) => {
+Array.from({length: 7}, (_, i) => `${i}`).forEach((label) => {
 	weeklyAgeGroupData[label] = [
 		Math.floor(Math.random() * 100) + 1, // 10대
 		Math.floor(Math.random() * 100) + 1, // 20대
@@ -101,10 +101,7 @@ export const weeklyData = {
 
 // 각 날짜별 연령대별 비율 (도넛 차트 데이터)
 export const monthlyAgeGroupData: TdoughnutDataType = {};
-[
-	...Array.from({length: 12}, (_, i) => `${i + 19}`),
-	...Array.from({length: 18}, (_, i) => `${i + 1}`),
-].forEach((label) => {
+Array.from({length: 30}, (_, i) => `${i}`).forEach((label) => {
 	monthlyAgeGroupData[label] = [
 		Math.floor(Math.random() * 100) + 1, // 10대
 		Math.floor(Math.random() * 100) + 1, // 20대

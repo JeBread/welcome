@@ -30,12 +30,22 @@ const MidDoughnut = () => {
 		if (selectCategory === 0) {
 			setSelectData(dailyAgeGroupData[selectIndex]);
 		} else if (selectCategory === 1) {
-			setSelectData(weeklyAgeGroupData[selectIndex + 12]);
+			setSelectData(weeklyAgeGroupData[selectIndex]);
 		} else {
-			setSelectData(monthlyAgeGroupData[selectIndex + 1]);
+			setSelectData(monthlyAgeGroupData[selectIndex]);
 		}
 		//도넛 차트 가운데에 들어갈 데이터의 총 합을 낸다.
-	}, [selectIndex, selectCategory, selectData, setSelectData]);
+	}, [selectIndex, selectData, setSelectData, selectCategory]);
+
+	useEffect(() => {
+		if (selectCategory === 0) {
+			setSelectData(dailyAgeGroupData[23]);
+		} else if (selectCategory === 1) {
+			setSelectData(weeklyAgeGroupData[6]);
+		} else {
+			setSelectData(monthlyAgeGroupData[29]);
+		}
+	}, [selectCategory, setSelectData]);
 
 	useEffect(() => {
 		if (selectData) {
