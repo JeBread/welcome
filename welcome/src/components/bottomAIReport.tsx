@@ -7,9 +7,9 @@ import {useState, useEffect} from 'react';
 export default function BottomAIReport(item: any) {
 	const {selectedInquiryType, setSelectedInquiryType} = useBottomStore();
 	const [currentReport, setCurrentReport] = useState({
-		inquiryType: '',
-		total: 0,
-		contents: '',
+		inquiryType: '총',
+		total: 410,
+		contents: '배송이 늦다',
 	});
 
 	useEffect(() => {
