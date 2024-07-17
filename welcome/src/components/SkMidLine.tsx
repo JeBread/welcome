@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import Title from '@/components/Title';
 import {useMidStore} from '@/store/midStore';
 
@@ -21,12 +21,12 @@ export default function MidLine() {
 		setselectIndex,
 		selectCategory,
 		setselectCategory,
-		selectData,
 		setSelectData,
 		setSpecificData,
 	} = useMidStore();
 
 	const resetPointColor = (data: any) => {
+		console.log(data);
 		if (data) {
 			data.datasets[0].pointBackgroundColor.map(() => 'rgb(0,129,255)');
 			setselectIndex(0);
@@ -47,7 +47,6 @@ export default function MidLine() {
 						onClick={() => {
 							setselectCategory(0);
 							resetPointColor(dailyData);
-							setSpecificData(dailyData.labels[dailyData.labels.length - 1]);
 						}}
 						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition hover:border-1.5 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${selectCategory === 0 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
 						시간대별
@@ -56,7 +55,6 @@ export default function MidLine() {
 						onClick={() => {
 							setselectCategory(1);
 							resetPointColor(monthlyData);
-							setSpecificData('7월 12일');
 						}}
 						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition hover:border-1.5 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${selectCategory === 1 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
 						1주일
@@ -65,7 +63,6 @@ export default function MidLine() {
 						onClick={() => {
 							setselectCategory(2);
 							resetPointColor(weeklyData);
-							setSpecificData('6월 19일');
 						}}
 						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition hover:border-1.5 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${selectCategory === 2 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
 						1개월
@@ -99,7 +96,7 @@ export default function MidLine() {
 							},
 						},
 						onClick: (event: any, elements, chart) => {
-							if (chart.tooltip) {
+							if (chart.tooltip?.title[0]) {
 								setSpecificData(chart.tooltip?.title[0]);
 							}
 							if (elements[0]) {
