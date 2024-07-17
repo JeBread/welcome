@@ -16,6 +16,9 @@ import {BsPrinter} from 'react-icons/bs';
 export default function BelowHeader() {
 	const {isOpen, onOpen, onOpenChange} = useDisclosure();
 	let now = new Date();
+	const printPage = () => {
+		window.print();
+	};
 
 	let year = now.getFullYear(); // 년도
 	let month = ('0' + (now.getMonth() + 1)).slice(-2); // 월
@@ -64,7 +67,10 @@ export default function BelowHeader() {
 									color='warning'
 									variant='shadow'
 									startContent={<BsPrinter className='size-[14px]' />}
-									className='mr-4 rounded-[8px] text-[12px]'>
+									className='mr-4 rounded-[8px] text-[12px]'
+									onClick={() => {
+										printPage();
+									}}>
 									출력하기
 								</Button>
 							</ModalHeader>
