@@ -37,7 +37,7 @@ export const topData: ItopData[] = [
 	{
 		title: '상담사 전환',
 		state: 'normal',
-		case: 100,
+		case: 14,
 		default: 20,
 		suffix: '명',
 		icon: 'call',
