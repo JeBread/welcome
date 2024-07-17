@@ -33,18 +33,6 @@ export default function MidLine() {
 		setSpecificData,
 	} = useMidStore();
 
-	const resetPointColor = (data: any) => {
-		if (data) {
-			data.datasets[0].pointBackgroundColor.map(() => 'rgb(0,129,255)');
-			setselectIndex(0);
-			if (data['0:00']) {
-				setSelectData(data[`${selectIndex}:00`]);
-			} else {
-				setSelectData(data[selectIndex]);
-			}
-		}
-	};
-
 	return (
 		<div className='flex h-[401px] w-[1037px] flex-col items-center rounded-[16px] bg-white p-[22px] shadow-box'>
 			<div className='flex w-full items-center justify-between'>
@@ -53,7 +41,6 @@ export default function MidLine() {
 					<button
 						onClick={() => {
 							setselectCategory(0);
-							resetPointColor(dailyData);
 							setSpecificData(
 								`7월 18일 ${dailyData.labels[dailyData.labels.length - 1]}`,
 							);
@@ -65,7 +52,6 @@ export default function MidLine() {
 					<button
 						onClick={() => {
 							setselectCategory(1);
-							resetPointColor(monthlyData);
 							setSpecificData('7월 18일');
 							setSelectData(weeklyAgeGroupData[6]);
 						}}
@@ -75,7 +61,6 @@ export default function MidLine() {
 					<button
 						onClick={() => {
 							setselectCategory(2);
-							resetPointColor(weeklyData);
 							setSpecificData('7월 18일');
 							setSelectData(monthlyAgeGroupData[29]);
 						}}

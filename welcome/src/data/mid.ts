@@ -4,10 +4,21 @@ type TdoughnutDataType = {
 	[key: string]: number[];
 };
 
+//라인차트에 들어갈 도넛차트 배열 데이터의 총 합 계산
 function calculateSum(data: TdoughnutDataType): number[] {
 	return Object.values(data).map((arr) => {
 		return arr.reduce((acc, cur) => acc + cur, 0);
 	});
+}
+
+//가장 마지막 포인트 컬러가 붉게 변경
+function resetPointColor(num: number): string[] {
+	let colors = [];
+	for (let i = 0; i < num - 1; i++) {
+		colors.push('rgb(0,129,255)');
+	}
+	colors.push('rgb(253, 84, 84)');
+	return colors;
 }
 
 // 각 시간대별 연령대별 비율 (도넛 차트 데이터)
@@ -55,9 +66,7 @@ export const dailyData = {
 			pointRadius: 5,
 			pointHoverRadius: 6,
 			pointBorderWidth: 0,
-			pointBackgroundColor: Array.from({length: 24}).map((item) => {
-				return 'rgb(0, 129, 255)';
-			}),
+			pointBackgroundColor: resetPointColor(24),
 			textColor: '#D1D1DF',
 		},
 	],
@@ -92,9 +101,7 @@ export const weeklyData = {
 			},
 			pointRadius: 5,
 			pointHoverRadius: 7,
-			pointBackgroundColor: Array.from({length: 24}).map((item) => {
-				return 'rgb(0, 129, 255)';
-			}),
+			pointBackgroundColor: resetPointColor(7),
 		},
 	],
 };
@@ -110,7 +117,7 @@ Array.from({length: 30}, (_, i) => `${i}`).forEach((label) => {
 	];
 });
 
-// 1개월 동안의 시간대별 상담 건수 (0~24시, 31일)
+// 1개월 동안의 시간대별 상담 건수 (0~24시, 30일)
 export const monthlyData = {
 	labels: [
 		...Array.from({length: 12}, (_, i) => `${i + 19}`),
@@ -132,9 +139,7 @@ export const monthlyData = {
 			},
 			pointRadius: 5,
 			pointHoverRadius: 7,
-			pointBackgroundColor: Array.from({length: 24}).map((item) => {
-				return 'rgb(0, 129, 255)';
-			}),
+			pointBackgroundColor: resetPointColor(30),
 		},
 	],
 };
