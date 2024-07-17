@@ -18,11 +18,10 @@ export default function BottomTop3Card({item}: BotTestProps) {
 	return (
 		<>
 			<div
-				style={{transition: 'transform 0.2s, opacity 0.1s ease'}}
 				onClick={() => {
 					setSelectedInquiryType(item.inquiryType);
 				}}
-				className={`relative flex h-[94px] w-[250px] cursor-pointer flex-row items-center gap-[20px] rounded-[8px] border bg-gray-100 shadow-box hover:border-blue-900 hover:bg-white hover:text-blue-900 ${
+				className={`shadow-box relative flex h-[94px] w-[250px] cursor-pointer flex-row items-center gap-[20px] rounded-[8px] border bg-gray-100 transition-all duration-200 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${
 					selectedInquiryType === item.inquiryType
 						? 'border-blue-900 bg-white text-blue-900 shadow-select'
 						: ''

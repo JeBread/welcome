@@ -43,9 +43,13 @@ export default function BottomDetailList(item: any) {
 	];
 
 	return (
-		<div className='relative mt-4'>
+		<div className='relative my-[22px]'>
 			<ScrollShadow className='h-[385px] w-full'>
-				<Table isStriped aria-label='Example static collection table'>
+				<Table
+					isStriped
+					classNames={{
+						wrapper: 'rounded-none',
+					}}>
 					<TableHeader>
 						{tableColumns.map((column, index) => (
 							<TableColumn
