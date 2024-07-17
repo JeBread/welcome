@@ -33,6 +33,10 @@ export default function MidLine() {
 		setSpecificData,
 	} = useMidStore();
 
+	useEffect(() => {
+		console.log(selectData);
+	}, []);
+
 	return (
 		<div className='flex h-[401px] w-[1037px] flex-col items-center rounded-[16px] bg-white p-[22px] shadow-box'>
 			<div className='flex w-full items-center justify-between'>
@@ -168,8 +172,8 @@ export default function MidLine() {
 				/>
 			</div>
 			<div className='mt-auto flex items-center gap-2'>
-				<div className='size-[15px]  gap-2 rounded-[5px] bg-blue-900'></div>
-				<span className='font-medium text-black'>
+				<div className='size-[12px]  gap-2 rounded-[3px] bg-blue-900'></div>
+				<span className='text-[14px] font-medium text-gray-900'>
 					{selectCategory === 0
 						? '시간대별 '
 						: selectCategory === 1
