@@ -8,7 +8,6 @@ import {
 	ModalBody,
 	ModalFooter,
 } from '@nextui-org/react';
-import {IoAnalyticsOutline} from 'react-icons/io5';
 import {TbDeviceAnalytics} from 'react-icons/tb';
 import {FaRegCalendar} from 'react-icons/fa';
 import {useDisclosure} from '@nextui-org/react';
@@ -17,7 +16,6 @@ import {BsPrinter} from 'react-icons/bs';
 export default function BelowHeader() {
 	const {isOpen, onOpen, onOpenChange} = useDisclosure();
 	let now = new Date();
-	console.log(now);
 
 	let year = now.getFullYear(); // 년도
 	let month = ('0' + (now.getMonth() + 1)).slice(-2); // 월
@@ -26,7 +24,6 @@ export default function BelowHeader() {
 	let minutes = ('0' + now.getMinutes()).slice(-2); // 분
 
 	let timeString = `${year}.${month}.${day} ${hours}:${minutes}`;
-	console.log(timeString);
 
 	return (
 		<div className='flex justify-between pl-[34px] pr-[30px] pt-[40px]'>
