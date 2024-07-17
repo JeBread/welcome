@@ -21,17 +21,19 @@ export default function MidLine() {
 		setselectIndex,
 		selectCategory,
 		setselectCategory,
-		selectData,
 		setSelectData,
+		setSpecificData,
 	} = useMidStore();
 
 	const resetPointColor = (data: any) => {
-		data.datasets[0].pointBackgroundColor.map(() => 'rgb(0,129,255)');
-		setselectIndex(0);
-		if (data['0:00']) {
-			setSelectData(data[`${selectIndex}:00`]);
-		} else {
-			setSelectData(data[selectIndex]);
+		if (data) {
+			data.datasets[0].pointBackgroundColor.map(() => 'rgb(0,129,255)');
+			setselectIndex(0);
+			if (data['0:00']) {
+				setSelectData(data[`${selectIndex}:00`]);
+			} else {
+				setSelectData(data[selectIndex]);
+			}
 		}
 	};
 
@@ -45,7 +47,7 @@ export default function MidLine() {
 							setselectCategory(0);
 							resetPointColor(dailyData);
 						}}
-						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition ${selectCategory === 0 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
+						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition hover:border-1.5 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${selectCategory === 0 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
 						시간대별
 					</button>
 					<button
@@ -53,7 +55,7 @@ export default function MidLine() {
 							setselectCategory(1);
 							resetPointColor(monthlyData);
 						}}
-						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition ${selectCategory === 1 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
+						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition hover:border-1.5 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${selectCategory === 1 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
 						1주일
 					</button>
 					<button
@@ -61,7 +63,7 @@ export default function MidLine() {
 							setselectCategory(2);
 							resetPointColor(weeklyData);
 						}}
-						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition ${selectCategory === 2 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
+						className={`h-[28px] w-[66px] rounded-[4px] text-[14px] transition hover:border-1.5 hover:border-blue-900 hover:bg-white hover:text-blue-900 ${selectCategory === 2 ? 'border-1.5 border-blue-900 bg-white text-blue-900 shadow-select' : 'bg-gray-200 text-gray-900'}`}>
 						1개월
 					</button>
 				</div>
@@ -93,6 +95,9 @@ export default function MidLine() {
 							},
 						},
 						onClick: (event: any, elements, chart) => {
+							if (chart.tooltip?.title[0]) {
+								setSpecificData(chart.tooltip?.title[0]);
+							}
 							if (elements[0]) {
 								const i = elements[0].index;
 								setselectIndex(i);
@@ -134,7 +139,17 @@ export default function MidLine() {
 										return label;
 									},
 									title: function (context) {
-										if (selectIndex !== 0) {
+										if (selectCategory === 0) {
+											// 	const regex = /^(\d+):/;
+											// 	const match = Number(context[0].label.match(regex));
+											// 	const hour = new Date().getHours();
+											// 	if (match < hour) {
+											// 		return `7월 17일 ${context[0].label}`;
+											// 	} else {
+											// 		return `7월 18일 ${context[0].label}`;
+											// 	}
+											return context[0].label;
+										} else {
 											let title = '';
 											if (Number(context[0].label) >= 19) {
 												title = `6월 ${context[0].label}일`;
@@ -142,8 +157,6 @@ export default function MidLine() {
 												title = `7월 ${context[0].label}일`;
 											}
 											return title;
-										} else {
-											return context[0].label;
 										}
 									},
 								},
@@ -154,7 +167,14 @@ export default function MidLine() {
 			</div>
 			<div className='mt-auto flex items-center gap-2'>
 				<div className='size-[15px]  gap-2 rounded-[5px] bg-blue-900'></div>
-				<span className='font-medium text-black'>시간대별 상담 건수</span>
+				<span className='font-medium text-black'>
+					{selectCategory === 0
+						? '시간대별 '
+						: selectCategory === 1
+							? '1주일 (7월 12일 ~ 7월 18일) '
+							: '1개월 (6월 19일 ~ 7월 18일) '}
+					상담 건수
+				</span>
 			</div>
 		</div>
 	);
