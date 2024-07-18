@@ -7,7 +7,7 @@ export const topData: ItopData[] = [
 		case: 15,
 		icon: 'pending',
 		emphasize: '15',
-		description: ['현재', '건의 요청이 대기중입니다.'],
+		description: ['현재', '건의 요청이 대기중이에요'],
 		descriptionIcon: 'wait',
 		hovertitle: '승인 대기 중인',
 		hovercontent: '문의사항을 확인해 보세요',
