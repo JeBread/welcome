@@ -29,7 +29,7 @@ const SideMenu = ({
 		onClick();
 	};
 
-	const buttonClass = `pl-[30px] transition hover:bg-default-100 ml-[22px] w-[192px] flex group gap-2 items-center relative px-2 py-1.5 w-full h-full box-border rounded-small subpixel-antialiased cursor-pointer tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:dark:ring-offset-background-content1 border-small border-transparent hover:border-default data-[hover=true]:bg-default-100 data-[selectable=true]:focus:border-default data-[selectable=true]:focus:bg-default-100 data-[hover=true]:transition-colors data-[hover=true]:text-default-foreground data-[selectable=true]:focus:text-default-foreground`;
+	const buttonClass = ``;
 
 	return (
 		<div>
@@ -74,18 +74,9 @@ const SideMenu = ({
 					{data.sub.map((sub: string, i: number) => (
 						<div
 							key={i}
-							className={
-								// `ml-[34px] flex cursor-pointer items-center gap-3 rounded-[8px] p-[4px] font-medium  transition-all duration-300 hover:bg-gray-300 hover:text-blue-900`
-								buttonClass
-							}>
+							className={` group relative ml-[22px] box-border flex h-full w-[192px] cursor-pointer items-center gap-2 rounded-small border-small px-2 py-1.5 pl-[30px] subpixel-antialiased outline-none transition tap-highlight-transparent hover:border-default hover:bg-default-100 data-[focus-visible=true]:z-10 data-[hover=true]:bg-default-100 data-[hover=true]:text-default-foreground data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-focus data-[hover=true]:transition-colors data-[selectable=true]:focus:border-default data-[selectable=true]:focus:bg-default-100 data-[selectable=true]:focus:text-default-foreground`}>
 							<div>
 								<div className='font-medium'>-</div>
-								{/* <VscCircleFilled
-									style={{
-										fontSize: '8px',
-										color: '#636566',
-									}}
-								/> */}
 							</div>
 							<div className='text-[14px]'>{sub}</div>
 						</div>
