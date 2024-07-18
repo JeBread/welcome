@@ -50,7 +50,9 @@ const Header = () => {
 						</DropdownItem>
 						<DropdownItem
 							key='copy'
-							startContent={<FaUser className={iconClasses} />}>
+							startContent={
+								<FaUser className='text-default-500 pointer-events-none shrink-0 text-[14px]' />
+							}>
 							개인정보 설정
 						</DropdownItem>
 						<DropdownItem
