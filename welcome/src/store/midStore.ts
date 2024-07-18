@@ -12,8 +12,6 @@ interface MidState {
 	setSpecificData: (specificData: string) => void;
 }
 
-const hour = new Date().getHours();
-
 export const useMidStore = create<MidState>()(
 	persist(
 		(set) => ({
@@ -23,7 +21,7 @@ export const useMidStore = create<MidState>()(
 			setselectCategory: (selectCategory: number) => set({selectCategory}),
 			selectData: [0, 0, 0, 0],
 			setSelectData: (selectData: number[]) => set({selectData}),
-			specificData: `7월 18일 ${hour}:00 `,
+			specificData: `7월 18일 00:00 `,
 			setSpecificData: (specificData: string) => set({specificData}),
 		}),
 		{

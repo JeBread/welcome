@@ -20,8 +20,14 @@ defaults.responsive = true;
 Chart.register(ChartDataLabels);
 
 const MidDoughnut = () => {
-	const {selectIndex, selectCategory, selectData, setSelectData, specificData} =
-		useMidStore();
+	const {
+		selectIndex,
+		selectCategory,
+		selectData,
+		setSelectData,
+		specificData,
+		setSpecificData,
+	} = useMidStore();
 
 	const [all, setAll] = useState<number>(0);
 
@@ -53,6 +59,11 @@ const MidDoughnut = () => {
 			setAll(sum);
 		}
 	}, [selectData]);
+
+	useEffect(() => {
+		const hour = new Date().getHours();
+		setSpecificData(`7월 18일 ${hour}:00`);
+	}, []);
 
 	return (
 		<div className='flex h-[401px] w-[533px] flex-col rounded-[16px] bg-white p-[22px] shadow-box'>
