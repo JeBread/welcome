@@ -14,6 +14,7 @@ import {
 	PiPackageBold,
 } from 'react-icons/pi';
 import {RiRefund2Line} from 'react-icons/ri';
+import {LuMoreHorizontal} from 'react-icons/lu';
 
 const iconMap: {[key: string]: JSX.Element} = {
 	success: <FaRegCheckCircle className='text-[42px]' />,
@@ -23,7 +24,7 @@ const iconMap: {[key: string]: JSX.Element} = {
 	smile: <FaRegFaceSmile />,
 	angry: <FaRegFaceAngry />,
 	bigsmile: <FaRegFaceLaughWink />,
-	wait: <BiLoaderCircle />,
+	wait: <LuMoreHorizontal />,
 	home: <TbLayoutDashboard className='text-[18px]' />,
 	log: <PiClockClockwiseBold className='text-[18px]' />,
 	center: <PiPhoneCallBold className='text-[18px]' />,
