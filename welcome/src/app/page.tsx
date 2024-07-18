@@ -9,7 +9,7 @@ export default function Home() {
 	return (
 		<>
 			<Header />
-			<div className='relative w-full'>
+			<div className='relative w-full min-w-[1920px]'>
 				<Side />
 				<div className='absolute right-0 top-[60px] bg-gray-200'>
 					<div>
