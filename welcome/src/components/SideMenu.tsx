@@ -29,6 +29,8 @@ const SideMenu = ({
 		onClick();
 	};
 
+	const buttonClass = `pl-[30px] transition hover:bg-default-100 ml-[22px] w-[192px] flex group gap-2 items-center relative px-2 py-1.5 w-full h-full box-border rounded-small subpixel-antialiased cursor-pointer tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:dark:ring-offset-background-content1 border-small border-transparent hover:border-default data-[hover=true]:bg-default-100 data-[selectable=true]:focus:border-default data-[selectable=true]:focus:bg-default-100 data-[hover=true]:transition-colors data-[hover=true]:text-default-foreground data-[selectable=true]:focus:text-default-foreground`;
+
 	return (
 		<div>
 			<div
@@ -68,17 +70,22 @@ const SideMenu = ({
 			{/* 서브메뉴 */}
 			{data.sub && (
 				<div
-					className={`${open ? 'max-h-[200px]' : 'max-h-0'} w-[214px] overflow-hidden text-center text-sm transition-all duration-[600ms] ease-in-out`}>
+					className={`${open ? 'max-h-[200px]' : 'max-h-0'}  flex w-[214px] flex-col gap-1 overflow-hidden text-center text-sm transition-all duration-[600ms] ease-in-out`}>
 					{data.sub.map((sub: string, i: number) => (
 						<div
 							key={i}
-							className={`ml-[34px] flex cursor-pointer items-center gap-3 rounded-[8px] p-[4px] font-medium  transition-all duration-300 hover:bg-gray-300 hover:text-blue-900`}>
+							className={
+								// `ml-[34px] flex cursor-pointer items-center gap-3 rounded-[8px] p-[4px] font-medium  transition-all duration-300 hover:bg-gray-300 hover:text-blue-900`
+								buttonClass
+							}>
 							<div>
-								<VscCircleFilled
+								<div className='font-medium'>-</div>
+								{/* <VscCircleFilled
 									style={{
 										fontSize: '8px',
+										color: '#636566',
 									}}
-								/>
+								/> */}
 							</div>
 							<div className='text-[14px]'>{sub}</div>
 						</div>
